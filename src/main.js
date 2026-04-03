@@ -58,12 +58,14 @@ async function init() {
 }
 
 function bindEvents() {
-  elements.searchInput.addEventListener("input", (event) => {
-    updateFilters({
-      search: event.target.value.trim(),
-      page: "all",
+  if (elements.searchInput) {
+    elements.searchInput.addEventListener("input", (event) => {
+      updateFilters({
+        search: event.target.value.trim(),
+        page: "all",
+      });
     });
-  });
+  }
 
   elements.surfaceFilter.addEventListener("change", (event) => {
     updateFilters({
