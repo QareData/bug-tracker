@@ -1,0 +1,226 @@
+{
+  "exportedAt": "2026-04-01T13:09:23.320Z",
+  "version": 5,
+  "state": {
+    "version": 5,
+    "items": {
+      "assets-et-organisations-assigner-un-plusieurs-element-s": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Assignation simple", "done": true}, {"title": "Assignation multiple", "done": true}, {"title": "Suppression croix", "done": false}],
+        "testHow": "Manager > Organisations > Assigner elements",
+        "expectedResult": "Assignation immediate. QR codes disparaissent.",
+        "notes": "Test OK. Manque croix rapide pour retirer codes.",
+        "manualCompleted": true
+      },
+      "assets-et-organisations-consulter-la-web-view-d-un-element": {
+        "todoChecks": {"source-0": true, "source-1": true},
+        "customTasks": [{"title": "Consulter webview", "done": true}, {"title": "Vérifier URL", "done": true}, {"title": "Prod vs staging", "done": false}],
+        "testHow": "Manager > Organisations > Consulter webview",
+        "expectedResult": "Webview OK avec infos. URL stable.",
+        "notes": "Prod OK. Staging a delai sync async.",
+        "manualCompleted": true
+      },
+      "assets-et-organisations-dupliquer-un-element": {
+        "todoChecks": {"source-0": true, "source-1": false},
+        "customTasks": [{"title": "Duplication simple", "done": true}, {"title": "Copie attributs", "done": true}, {"title": "Message clarif", "done": false}],
+        "testHow": "Manager > Organisations > Dupliquer",
+        "expectedResult": "Copie complete. Message explicatif.",
+        "notes": "Duplication OK. Popup manquante.",
+        "manualCompleted": true
+      },
+      "assets-et-organisations-modifier-un-plusieurs-element-s": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Modifier simple", "done": true}, {"title": "Modification masse", "done": true}, {"title": "Vue avant/apres", "done": false}],
+        "testHow": "Manager > Organisations > Modifier elements",
+        "expectedResult": "Modifications sauvegardees. Vue avant/apres.",
+        "notes": "Modifications OK. Manque vue avant/apres.",
+        "manualCompleted": true
+      },
+      "assets-et-organisations-creer-une-organisation": {
+        "todoChecks": {"source-0": true, "source-1": true},
+        "customTasks": [{"title": "Creer organisation", "done": true}, {"title": "Vérifier liste", "done": true}, {"title": "Test adresse", "done": false}],
+        "testHow": "Manager > Organisations > Creer",
+        "expectedResult": "Creation OK. Visible en liste.",
+        "notes": "Creation OK. Verification adresse differente de QR codes.",
+        "manualCompleted": true
+      },
+      "assets-et-organisations-modifier-le-modele-d-une-organisation": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Modifier modele", "done": true}, {"title": "Appliquer entrees", "done": true}, {"title": "Donnees histo", "done": true}],
+        "testHow": "Manager > Organisations > Modifier modele",
+        "expectedResult": "Modifications appliquees. Entrees adaptees.",
+        "notes": "Flux stable et fiable. Aucune regression.",
+        "manualCompleted": true
+      },
+      "entrees-import-et-portail-ajouter-une-plusieurs-entree-s-dans-l-organisation": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Ajouter entree", "done": true}, {"title": "Import CSV", "done": true}, {"title": "Erreurs import", "done": false}],
+        "testHow": "Portail > Organisations > Ajouter entrees",
+        "expectedResult": "Entrees creees OK. Validations correctes.",
+        "notes": "Manuel OK. CSV OK. Messages erreur manquent de clarte.",
+        "manualCompleted": true
+      },
+      "entrees-import-et-portail-modifier-une-entree": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Modifier champ", "done": true}, {"title": "Vérifier sauvegarde", "done": true}, {"title": "Historique", "done": true}],
+        "testHow": "Portail > Entrees > Modifier entree",
+        "expectedResult": "Sauvegarde immediate avec historique.",
+        "notes": "Stable et intuitif. Historique avec timestamps.",
+        "manualCompleted": true
+      },
+      "entrees-import-et-portail-lier-un-plusieurs-element-s-a-une-entree-via-cette-derniere": {
+        "todoChecks": {"source-0": true, "source-1": true},
+        "customTasks": [{"title": "Ajouter liaison", "done": true}, {"title": "Lier plusieurs", "done": true}, {"title": "Bidirection", "done": false}],
+        "testHow": "Portail > Entrees > Ajouter liaisons",
+        "expectedResult": "Liaisons creees. Relations bidirectionnelles.",
+        "notes": "Liaisons OK. Bidirectionnalite non verifiee.",
+        "manualCompleted": true
+      },
+      "entrees-import-et-portail-generer-et-consulter-le-portail-d-une-entree": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Generer portail", "done": true}, {"title": "Acceder URL", "done": true}, {"title": "Permissions", "done": true}],
+        "testHow": "Portail > Entrees > Generer portail",
+        "expectedResult": "Portail genere. URL unique. Permissions OK.",
+        "notes": "Portail genere correctement. Infos completes.",
+        "manualCompleted": true
+      },
+      "entrees-import-et-portail-supprimer-une-entree": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": false},
+        "customTasks": [{"title": "Supprimer entree", "done": true}, {"title": "Vérifier disparition", "done": true}, {"title": "Nettoyer liaisons", "done": false}],
+        "testHow": "Portail > Entrees > Supprimer",
+        "expectedResult": "Suppression confirmee. Liaisons nettoyees.",
+        "notes": "Suppression OK. Liaisons non verifiees.",
+        "manualCompleted": true
+      },
+      "utilisateurs-et-permissions-inviter-un-utilisateur": {
+        "todoChecks": {"source-0": true, "source-1": true},
+        "customTasks": [{"title": "Acceder users", "done": true}, {"title": "Envoyer invitation", "done": true}, {"title": "Vérifier email", "done": false}],
+        "testHow": "Manager > Utilisateurs > Inviter",
+        "expectedResult": "Invitation envoyee et email recu.",
+        "notes": "Invitation OK. Email test non verfie.",
+        "manualCompleted": true
+      },
+      "utilisateurs-et-permissions-editer-les-permissions-d-un-utilisateur": {
+        "todoChecks": {"source-0": true, "source-1": true},
+        "customTasks": [{"title": "Ouvrir params", "done": true}, {"title": "Modifier perms", "done": true}, {"title": "Verifier appli", "done": false}],
+        "testHow": "Manager > Utilisateurs > Editer permissions",
+        "expectedResult": "Permissions appliquees immediatement.",
+        "notes": "Permissions modifiees OK. Pas de feedback visuel.",
+        "manualCompleted": true
+      },
+      "utilisateurs-et-permissions-reset-son-mot-de-passe": {
+        "todoChecks": {"source-0": true, "source-1": false, "source-2": true},
+        "customTasks": [{"title": "Reset form", "done": true}, {"title": "Soumettre email", "done": true}, {"title": "Tester lien", "done": false}],
+        "testHow": "Login > Mot de passe oublie > reset",
+        "expectedResult": "Email recu avec lien valide.",
+        "notes": "Formulaire present. Email rapide. Lien expire avant test.",
+        "manualCompleted": true
+      },
+      "support-shop-et-acces-utiliser-le-formulaire-de-contact": {
+        "todoChecks": {"source-0": false, "source-1": true},
+        "customTasks": [{"title": "Remplir formulaire", "done": true}, {"title": "Soumettre", "done": true}, {"title": "Confirmation", "done": false}],
+        "testHow": "Site > Formulaire contact",
+        "expectedResult": "Soumission OK. Confirmation. Ticket cree.",
+        "notes": "ERREUR 500 a soumission. Bug prioritaire a investiguer.",
+        "manualCompleted": true
+      },
+      "support-shop-et-acces-acces-au-shop-pour-un-utilisateur-avec-le-role-qaredata": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Login qaredata", "done": true}, {"title": "Acceder shop", "done": true}, {"title": "Consulter produits", "done": true}],
+        "testHow": "Login qaredata > acceder shop",
+        "expectedResult": "Shop accessible. Produits affiches.",
+        "notes": "Acces shop fonctionne parfaitement. Aucun probleme.",
+        "manualCompleted": true
+      },
+      "support-shop-et-acces-generer-de-nouveaux-codes-non-assignes-virtuel-et-avec-stickers": {
+        "todoChecks": {"source-0": true, "source-1": false, "source-2": true},
+        "customTasks": [{"title": "Codes virtuels", "done": true}, {"title": "Codes stickers", "done": false}, {"title": "Non-assignes", "done": true}],
+        "testHow": "Shop > Generer codes",
+        "expectedResult": "Codes generes. Aucun assigne initialement.",
+        "notes": "Virtuels OK. Stickers bugges - pas visible immediat.",
+        "manualCompleted": true
+      },
+      "support-shop-et-acces-ajouter-des-nouveaux-acces-exterieur": {
+        "todoChecks": {"source-0": true, "source-1": true},
+        "customTasks": [{"title": "Acceder acces", "done": true}, {"title": "Creer acces", "done": true}, {"title": "Tester API", "done": false}],
+        "testHow": "Manager > Acces > Ajouter acces externe",
+        "expectedResult": "Acces cree avec cle/token valide.",
+        "notes": "Ajout OK. Cle generee. API test non fait.",
+        "manualCompleted": true
+      },
+      "support-shop-et-acces-modifier-la-politique-de-restriction-des-acces": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Params politique", "done": true}, {"title": "Modifier regles", "done": true}, {"title": "Tester scenarios", "done": true}],
+        "testHow": "Manager > Securite > Politique restriction",
+        "expectedResult": "Regles appliquees immediatement.",
+        "notes": "Regles OK. Blocage correct. Aucun probleme.",
+        "manualCompleted": true
+      },
+      "applications-mobiles-webview-et-site-public-gestion-de-son-compte-app": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Ouvrir app", "done": true}, {"title": "Modifier profil", "done": true}, {"title": "Sauvegarde", "done": true}],
+        "testHow": "App mobile > Compte",
+        "expectedResult": "Modifications sauvegardees immediatement.",
+        "notes": "App OK. Gestion responsive et rapide.",
+        "manualCompleted": true
+      },
+      "applications-mobiles-webview-et-site-public-gestion-des-interventions-app": {
+        "todoChecks": {"source-0": true, "source-1": true},
+        "customTasks": [{"title": "Consulter interventions", "done": true}, {"title": "Ouvrir details", "done": true}, {"title": "Changer statut", "done": false}],
+        "testHow": "App mobile > Interventions",
+        "expectedResult": "Interventions affichees avec details.",
+        "notes": "Interventions OK. Test statut impossible.",
+        "manualCompleted": true
+      },
+      "applications-mobiles-webview-et-site-public-association-d-un-qrcode-a-un-nouvel-element-app": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": false},
+        "customTasks": [{"title": "Ouvrir scanner", "done": true}, {"title": "Scanner creer", "done": true}, {"title": "Sync backend", "done": false}],
+        "testHow": "App mobile > Scanner QR",
+        "expectedResult": "Scan OK. Element cree et visible backend.",
+        "notes": "Scan OK. Sync non verifiee.",
+        "manualCompleted": true
+      },
+      "applications-mobiles-webview-et-site-public-page-de-connexion-webview": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Ouvrir webview", "done": true}, {"title": "Login test", "done": true}, {"title": "Redirection", "done": true}],
+        "testHow": "Webview app > Login",
+        "expectedResult": "Connexion OK. Dashboard visible.",
+        "notes": "Webview connexion parfaite. Aucun probleme.",
+        "manualCompleted": true
+      },
+      "applications-mobiles-webview-et-site-public-gestion-des-interventions-webview": {
+        "todoChecks": {"source-0": true, "source-1": true, "source-2": true},
+        "customTasks": [{"title": "Consulter webview", "done": true}, {"title": "Modifier statut", "done": true}, {"title": "Sync verifiee", "done": true}],
+        "testHow": "Webview app > Interventions",
+        "expectedResult": "Interventions OK. Statut change et sync.",
+        "notes": "Webview OK. Sync immediate observee.",
+        "manualCompleted": true
+      },
+      "applications-mobiles-webview-et-site-public-bug-android-retour-ecran-rose": {
+        "todoChecks": {"source-0": false, "source-1": true},
+        "customTasks": [{"title": "Reproduire bug", "done": true}, {"title": "Tester versions", "done": false}, {"title": "Documenter", "done": true}],
+        "testHow": "Android > navigation rapide > ecran rose",
+        "expectedResult": "Ecran rose ne doit pas apparaitre.",
+        "notes": "Bug intermittent 60% retours rapides. Lie a camera. UX degradee.",
+        "manualCompleted": true
+      },
+      "applications-mobiles-webview-et-site-public-performance-chargement-parfois-long": {
+        "todoChecks": {"source-0": true, "source-1": true},
+        "customTasks": [{"title": "Mesurer charge", "done": true}, {"title": "Tester reseaux", "done": false}, {"title": "Identifier goulot", "done": true}],
+        "testHow": "App > mesurer temps et testent connexions",
+        "expectedResult": "Chargement rapide et coherent.",
+        "notes": "WiFi/5G 2s. 4G 10-15s. Pas indicateur chargement.",
+        "manualCompleted": true
+      },
+      "applications-mobiles-webview-et-site-public-site-web-qaredata-io-affichage-du-texte": {
+        "todoChecks": {"source-0": true, "source-1": false, "source-2": true},
+        "customTasks": [{"title": "Consulter texte", "done": true}, {"title": "Verifier markdown", "done": true}, {"title": "Responsive", "done": false}],
+        "testHow": "Site qaredata.io > pages contenu",
+        "expectedResult": "Texte correct. Markdown rendu. Responsive OK.",
+        "notes": "Texte OK desktop. BUG: markdown echappee affichee literal.",
+        "manualCompleted": true
+      }
+    },
+    "manualItems": []
+  }
+}

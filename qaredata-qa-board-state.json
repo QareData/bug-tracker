@@ -1,0 +1,226 @@
+{
+  "exportedAt": "2026-04-01T09:42:09.363Z",
+  "version": 5,
+  "state": {
+    "version": 5,
+    "items": {
+      "assets-et-organisations-assigner-un-plusieurs-element-s": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Assigner un / plusieurs element(s)\" dans le domaine \"Assets et organisations\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : un QR code deja present reste visible dans la liste des QR codes a assigner. et il manque une suppression rapide de type croix pour retirer un QR code deja selectionne..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : un QR code deja present reste visible dans la liste des QR codes a assigner. et il manque une suppression rapide de type croix pour retirer un QR code deja selectionne..",
+        "notes": "Ouah mais c'est génial ici",
+        "manualCompleted": false
+      },
+      "assets-et-organisations-consulter-la-web-view-d-un-element": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Consulter la web view d'un element\" dans le domaine \"Assets et organisations\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : la consultation fonctionne uniquement si l'element existe dans la webview prod, pas dans celle de staging..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : la consultation fonctionne uniquement si l'element existe dans la webview prod, pas dans celle de staging..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "assets-et-organisations-dupliquer-un-element": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Dupliquer un element\" dans le domaine \"Assets et organisations\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : le flux de duplication manque d'une popup claire pour expliquer ce qu'il faut completer avant validation..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : le flux de duplication manque d'une popup claire pour expliquer ce qu'il faut completer avant validation..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "assets-et-organisations-modifier-un-plusieurs-element-s": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Modifier un / plusieurs element(s)\" dans le domaine \"Assets et organisations\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : il manque une vue avant/apres des modifications pour verifier qu'aucune information importante n'est perdue..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : il manque une vue avant/apres des modifications pour verifier qu'aucune information importante n'est perdue..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "assets-et-organisations-creer-une-organisation": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Creer une organisation\" dans le domaine \"Assets et organisations\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : la verification d'adresse reste a aligner avec celle utilisee pour les QR codes..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : la verification d'adresse reste a aligner avec celle utilisee pour les QR codes..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "assets-et-organisations-modifier-le-modele-d-une-organisation": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Modifier le modele d'une organisation\" dans le domaine \"Assets et organisations\". Rejouer le cas nominal puis une verification de non-regression sur les points deja annonces comme stables. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : le comportement est note comme stable, sans probleme releve..",
+        "expectedResult": "Le flux reste stable sur les points deja valides, sans regression visible ni perte de donnees. Resultat attendu en priorite : le comportement est note comme stable, sans probleme releve..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "entrees-import-et-portail-ajouter-une-plusieurs-entree-s-dans-l-organisation": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Ajouter une / plusieurs entree(s) dans l'organisation\" dans le domaine \"Entrees, import et portail\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : les noms et dates sont acceptes avec trop peu de garde-fous, avec une limite liee au comportement JavaScript., l'import Excel passe globalement, mais les dates restent defectueuses pour l'instant., le champ choix semble interprete selon vide ou non vide, au lieu de suivre strictement l'option attendue. et les autres points associes.",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : les noms et dates sont acceptes avec trop peu de garde-fous, avec une limite liee au comportement JavaScript., l'import Excel passe globalement, mais les dates restent defectueuses pour l'instant., le champ choix semble interprete selon vide ou non vide, au lieu de suivre strictement l'option attendue. et les autres points associes.",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "entrees-import-et-portail-modifier-une-entree": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Modifier une entree\" dans le domaine \"Entrees, import et portail\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : il manque une popup expliquant precisement ce qui a ete modifie..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : il manque une popup expliquant precisement ce qui a ete modifie..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "entrees-import-et-portail-lier-un-plusieurs-element-s-a-une-entree-via-cette-derniere": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Lier un / plusieurs element(s) a une entree via cette derniere\" dans le domaine \"Entrees, import et portail\". Rejouer le cas nominal puis une verification de non-regression sur les points deja annonces comme stables. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : l'ajout d'elements depuis l'entree est simple. et un element deja present n'est ni duplique, ni supprime accidentellement..",
+        "expectedResult": "Le flux reste stable sur les points deja valides, sans regression visible ni perte de donnees. Resultat attendu en priorite : l'ajout d'elements depuis l'entree est simple. et un element deja present n'est ni duplique, ni supprime accidentellement..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "entrees-import-et-portail-generer-et-consulter-le-portail-d-une-entree": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Generer et consulter le portail d'une entree\" dans le domaine \"Entrees, import et portail\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : la redirection essaye bien de partir sur portail.qareco.de, mais le portail ne marche pas car il ne cible pas la meme base de donnees..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : la redirection essaye bien de partir sur portail.qareco.de, mais le portail ne marche pas car il ne cible pas la meme base de donnees..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "entrees-import-et-portail-supprimer-une-entree": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Supprimer une entree\" dans le domaine \"Entrees, import et portail\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : supprimer toutes les entrees d'une organisation laisse un voile gris et bloque toute action sur l'ecran..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : supprimer toutes les entrees d'une organisation laisse un voile gris et bloque toute action sur l'ecran..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "utilisateurs-et-permissions-inviter-un-utilisateur": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Inviter un utilisateur\" dans le domaine \"Utilisateurs et permissions\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : on peut inviter plusieurs fois la meme entite., aucun mail n'est recu. et la liste ne se rafraichit pas apres l'action..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : on peut inviter plusieurs fois la meme entite., aucun mail n'est recu. et la liste ne se rafraichit pas apres l'action..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "utilisateurs-et-permissions-editer-les-permissions-d-un-utilisateur": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Editer les permissions d'un utilisateur\" dans le domaine \"Utilisateurs et permissions\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : en editant les filtres de perimetre, certains assets disparaissent quand on ajoute des organisations. et des QR codes peuvent etre ajoutes meme sans autorisation adequate..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : en editant les filtres de perimetre, certains assets disparaissent quand on ajoute des organisations. et des QR codes peuvent etre ajoutes meme sans autorisation adequate..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "utilisateurs-et-permissions-reset-son-mot-de-passe": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Reset son mot de passe\" dans le domaine \"Utilisateurs et permissions\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : l'utilisateur devrait etre deconnecte apres l'operation..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : l'utilisateur devrait etre deconnecte apres l'operation..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "support-shop-et-acces-utiliser-le-formulaire-de-contact": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Utiliser le formulaire de contact\" dans le domaine \"Support, shop et acces\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : erreur 500 cote serveur mail. et le serveur d'envoi doit etre verifie..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : erreur 500 cote serveur mail. et le serveur d'envoi doit etre verifie..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "support-shop-et-acces-acces-au-shop-pour-un-utilisateur-avec-le-role-qaredata": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Acces au shop pour un utilisateur avec le role qaredata\" dans le domaine \"Support, shop et acces\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : le mode QR Code Virtuel reste en echec..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : le mode QR Code Virtuel reste en echec..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "support-shop-et-acces-generer-de-nouveaux-codes-non-assignes-virtuel-et-avec-stickers": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Generer de nouveaux codes non assignes (virtuel et avec stickers)\" dans le domaine \"Support, shop et acces\". Rejouer le cas nominal puis une verification de non-regression sur les points deja annonces comme stables. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : le flux est note comme fonctionnel sur les deux variantes..",
+        "expectedResult": "Le flux reste stable sur les points deja valides, sans regression visible ni perte de donnees. Resultat attendu en priorite : le flux est note comme fonctionnel sur les deux variantes..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "support-shop-et-acces-ajouter-des-nouveaux-acces-exterieur": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Ajouter des nouveaux acces exterieur\" dans le domaine \"Support, shop et acces\". Rejouer le cas nominal puis une verification de non-regression sur les points deja annonces comme stables. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : l'ajout de nom et email marche sans probleme remonte..",
+        "expectedResult": "Le flux reste stable sur les points deja valides, sans regression visible ni perte de donnees. Resultat attendu en priorite : l'ajout de nom et email marche sans probleme remonte..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "support-shop-et-acces-modifier-la-politique-de-restriction-des-acces": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Modifier la politique de restriction des acces\" dans le domaine \"Support, shop et acces\". Rejouer le cas nominal puis une verification de non-regression sur les points deja annonces comme stables. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : le cas d'ajout d'intervention fonctionne bien..",
+        "expectedResult": "Le flux reste stable sur les points deja valides, sans regression visible ni perte de donnees. Resultat attendu en priorite : le cas d'ajout d'intervention fonctionne bien..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "applications-mobiles-webview-et-site-public-gestion-de-son-compte-app": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Gestion de son compte - App\" dans le domaine \"Applications mobiles, webview et site public\". Rejouer le cas nominal puis une verification de non-regression sur les points deja annonces comme stables. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : la deconnexion du compte est validee., la suppression du compte est validee. et l'ajout du compte en se reconnectant est valide..",
+        "expectedResult": "Le flux reste stable sur les points deja valides, sans regression visible ni perte de donnees. Resultat attendu en priorite : la deconnexion du compte est validee., la suppression du compte est validee. et l'ajout du compte en se reconnectant est valide..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "applications-mobiles-webview-et-site-public-gestion-des-interventions-app": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Gestion des interventions - App\" dans le domaine \"Applications mobiles, webview et site public\". Rejouer le cas nominal puis une verification de non-regression sur les points deja annonces comme stables. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : la creation d'une intervention est validee. et la mise a jour d'une intervention est validee..",
+        "expectedResult": "Le flux reste stable sur les points deja valides, sans regression visible ni perte de donnees. Resultat attendu en priorite : la creation d'une intervention est validee. et la mise a jour d'une intervention est validee..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "applications-mobiles-webview-et-site-public-association-d-un-qrcode-a-un-nouvel-element-app": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Association d'un QRCode a un nouvel element - App\" dans le domaine \"Applications mobiles, webview et site public\". Rejouer le cas nominal puis une verification de non-regression sur les points deja annonces comme stables. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : l'association d'un nouvel element a un QRCode est validee..",
+        "expectedResult": "Le flux reste stable sur les points deja valides, sans regression visible ni perte de donnees. Resultat attendu en priorite : l'association d'un nouvel element a un QRCode est validee..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "applications-mobiles-webview-et-site-public-page-de-connexion-webview": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Page de connexion - Webview\" dans le domaine \"Applications mobiles, webview et site public\". Rejouer le cas nominal puis une verification de non-regression sur les points deja annonces comme stables. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : un domaine non autorise ne permet pas l'acces aux formulaires de creation d'intervention. et un domaine autorise permet bien l'acces aux formulaires attendus..",
+        "expectedResult": "Le flux reste stable sur les points deja valides, sans regression visible ni perte de donnees. Resultat attendu en priorite : un domaine non autorise ne permet pas l'acces aux formulaires de creation d'intervention. et un domaine autorise permet bien l'acces aux formulaires attendus..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "applications-mobiles-webview-et-site-public-gestion-des-interventions-webview": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Gestion des interventions - Webview\" dans le domaine \"Applications mobiles, webview et site public\". Rejouer le cas nominal puis une verification de non-regression sur les points deja annonces comme stables. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : la creation d'une intervention est validee., la coherence de la date et de l'heure est validee sur la creation. et la mise a jour d'une intervention est validee..",
+        "expectedResult": "Le flux reste stable sur les points deja valides, sans regression visible ni perte de donnees. Resultat attendu en priorite : la creation d'une intervention est validee., la coherence de la date et de l'heure est validee sur la creation. et la mise a jour d'une intervention est validee..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "applications-mobiles-webview-et-site-public-bug-android-retour-ecran-rose": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Bug Android - retour ecran rose\" dans le domaine \"Applications mobiles, webview et site public\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : le retour Android provoque un ecran rose..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : le retour Android provoque un ecran rose..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "applications-mobiles-webview-et-site-public-performance-chargement-parfois-long": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Performance - chargement parfois long\" dans le domaine \"Applications mobiles, webview et site public\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : certains chargements sont notes comme un peu longs..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : certains chargements sont notes comme un peu longs..",
+        "notes": "",
+        "manualCompleted": false
+      },
+      "applications-mobiles-webview-et-site-public-site-web-qaredata-io-affichage-du-texte": {
+        "todoChecks": {},
+        "customTasks": [],
+        "testHow": "Ouvrir le parcours \"Site web qaredata.io - affichage du texte\" dans le domaine \"Applications mobiles, webview et site public\". Rejouer le cas nominal puis au moins un cas qui reproduisait le probleme signale. Verifier le rendu, les messages utilisateur, les donnees sauvegardees et l'absence d'erreur visible. Points a couvrir en priorite : le site peut afficher qaredata au lieu de rendre correctement le gras sur qaredata..",
+        "expectedResult": "Le probleme signale ne doit plus se reproduire et le parcours doit rester fluide, coherent et exploitable pour l'utilisateur. Resultat attendu en priorite : le site peut afficher qaredata au lieu de rendre correctement le gras sur qaredata..",
+        "notes": "",
+        "manualCompleted": false
+      }
+    },
+    "manualItems": []
+  }
+}

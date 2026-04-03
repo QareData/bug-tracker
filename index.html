@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>QareData QA Board - Refonte Professionnelle</title>
+  <link rel="stylesheet" href="./styles.css?v=20260403-user-scenario-2" />
+  <link rel="stylesheet" href="./minimal-cards.css?v=20260403-user-scenario-2" />
+</head>
+<body>
+  <!-- ===== HEADER GLOBAL ===== -->
+  <header class="app-header">
+    <div class="header-content">
+      <!-- Logo + Titre -->
+      <div class="header-main">
+        <div class="header-main__identity logo-section">
+          <div class="logo">📋</div>
+          <div class="title-section">
+            <span class="header-eyebrow">QA Dashboard</span>
+            <h1 class="app-title" id="header-project-title">QareData QA Board</h1>
+            <p class="app-description" id="header-project-subtitle">Vue d'ensemble des campagnes de recette, criticités et exports.</p>
+          </div>
+        </div>
+
+        <!-- Actions principales en haut -->
+        <div class="header-actions">
+          <button class="btn btn-primary" id="import-json" title="Importer JSON">
+            <span>📥</span>
+            <span>Importer</span>
+          </button>
+          <button class="btn btn-primary" id="export-json" title="Exporter JSON">
+            <span>📤</span>
+            <span>JSON</span>
+          </button>
+          <button class="btn btn-success" id="generate-pdf" title="Exporter PDF">
+            <span>📄</span>
+            <span>PDF</span>
+          </button>
+          <button class="btn btn-success" id="generate-markdown" title="Exporter Markdown">
+            <span>📝</span>
+            <span>Markdown</span>
+          </button>
+          <button class="btn btn-ghost" id="reset-board" title="Réinitialiser">
+            <span>🔄</span>
+            <span>Réinitialiser</span>
+          </button>
+          <div class="theme-toggle">
+            <button class="btn btn-ghost" id="btn-theme" title="Mode sombre/clair">
+              <span id="theme-icon">☾</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barre de métadonnées -->
+      <div class="header-metadata">
+        <div class="header-meta-card">
+          <div class="metadata-field">
+            <label>Projet</label>
+            <input type="text" id="project-name" data-field="projectName" placeholder="Nom du projet" class="meta-input" />
+          </div>
+          <div class="metadata-field">
+            <label>Testeur</label>
+            <input type="text" id="tester-name" data-field="tester" placeholder="Nom du testeur" class="meta-input" />
+          </div>
+          <div class="metadata-field">
+            <label>Environnement</label>
+            <input type="text" id="environment-name" data-field="environment" placeholder="Ex. Staging iPhone 15" class="meta-input" />
+          </div>
+          <div class="metadata-field metadata-field--status">
+            <label>Statut</label>
+            <div class="save-status" id="save-status">Synchronisation…</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI rapides (summary-root) -->
+      <div class="header-kpi" id="summary-root"></div>
+    </div>
+  </header>
+
+  <!-- ===== BARRE DE FILTRES ===== -->
+  <nav class="filter-bar">
+    <div class="filter-content">
+      <!-- Recherche -->
+      <div class="search-field">
+        <input 
+          type="search" 
+          id="search-input" 
+          placeholder="🔍 Rechercher une carte…" 
+          class="search-input"
+        />
+      </div>
+
+      <!-- Filtres par surface et page -->
+      <div class="filter-group">
+        <select id="surface-filter" class="filter-select">
+          <option value="all">Toutes les surfaces</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <select id="page-filter" class="filter-select">
+          <option value="all">Toutes les pages</option>
+        </select>
+      </div>
+
+      <!-- Filtres par statut et sévérité -->
+      <div class="filter-group">
+        <select id="status-filter" class="filter-select">
+          <option value="all">Tous les statuts</option>
+          <option value="todo">À lancer</option>
+          <option value="progress">En cours</option>
+          <option value="done">Validées</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <select id="severity-filter" class="filter-select">
+          <option value="all">Toutes les criticités</option>
+          <option value="blocker">🔴 Bloquant</option>
+          <option value="major">🟠 Majeur</option>
+          <option value="minor">🟡 Mineur</option>
+        </select>
+      </div>
+
+      <!-- Toggles compacts -->
+      <div class="filter-toggles">
+        <label class="toggle-checkbox">
+          <input type="checkbox" id="only-bugs" />
+          <span>🐛 Bugs uniquement</span>
+        </label>
+        <label class="toggle-checkbox">
+          <input type="checkbox" id="only-not-validated" />
+          <span>❌ Non validées</span>
+        </label>
+        <label class="toggle-checkbox">
+          <input type="checkbox" id="hide-done" />
+          <span>👁️ Masquer validées</span>
+        </label>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== ZONE PRINCIPALE ===== -->
+  <main class="app-main">
+    <!-- Barre de création de carte manuelle -->
+    <aside class="create-card-panel">
+      <h3>➕ Créer une carte manuelle</h3>
+      <div class="create-card-form">
+        <div class="form-row">
+          <select id="new-card-surface" class="form-control" placeholder="Surface">
+            <option value="">Sélectionner surface</option>
+          </select>
+          <select id="new-card-page" class="form-control" placeholder="Page">
+            <option value="">Sélectionner page</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <input 
+            type="text" 
+            id="new-card-title" 
+            placeholder="Titre de la carte" 
+            class="form-control"
+          />
+        </div>
+        <div class="form-row">
+          <select id="new-card-severity" class="form-control">
+            <option value="minor">🟡 Mineur</option>
+            <option value="major">🟠 Majeur</option>
+            <option value="blocker">🔴 Bloquant</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <textarea 
+            id="new-card-notes" 
+            placeholder="Notes additionnelles" 
+            class="form-control"
+            rows="2"
+          ></textarea>
+        </div>
+        <div class="form-row">
+          <textarea 
+            id="new-card-checklist" 
+            placeholder="Étapes du scénario utilisateur (une ligne par étape)" 
+            class="form-control"
+            rows="2"
+          ></textarea>
+        </div>
+        <button class="btn btn-success" id="create-card">
+          ✅ Créer la carte
+        </button>
+      </div>
+    </aside>
+
+    <!-- Zone centrale: Cartes -->
+    <article class="content-area">
+      <!-- Vue liste des cartes (board-root) -->
+      <section class="board-root" id="board-root">
+        <!-- Généré dynamiquement -->
+      </section>
+
+      <!-- Vue vide -->
+      <section class="empty-state" id="empty-state" style="display: none;">
+        <div class="empty-icon">📭</div>
+        <h2>Aucune carte correspondante</h2>
+        <p>Ajuste tes filtres ou crée une nouvelle carte pour commencer.</p>
+      </section>
+    </article>
+  </main>
+
+  <!-- ===== MODAL: DÉTAIL CARTE ===== -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-container">
+      <button class="modal-close" id="modal-close">&times;</button>
+      
+      <div class="modal-content" id="modal-content">
+        <!-- Rempli dynamiquement -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== INPUT FILE (caché) ===== -->
+  <input type="file" id="file-import" accept="application/json" style="display: none;" />
+
+  <!-- Scripts -->
+  <script type="module" src="./src/main.js?v=20260403-user-scenario-2"></script>
+</body>
+</html>

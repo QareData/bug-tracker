@@ -1,0 +1,1454 @@
+{
+  "metadata": {
+    "companyName": "QareData",
+    "projectName": "Dashboard QA",
+    "reportName": "Rapport de sortie QA",
+    "defaultTester": "",
+    "defaultEnvironment": ""
+  },
+  "surfaces": [
+    {
+      "id": "manager",
+      "name": "Manager",
+      "description": "Recette du back-office manager et des flux d’administration.",
+      "pages": [
+        {
+          "id": "organisations",
+          "name": "Organisations",
+          "cards": [
+            {
+              "id": "assets-et-organisations-assigner-un-plusieurs-element-s",
+              "title": "Assigner un / plusieurs element(s)",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Organisations puis atteindre le flux \"Assigner un / plusieurs element(s)\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : un QR code deja present reste visible dans la liste des QR codes a assigner.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Verifier que ce point ne se reproduit plus : il manque une suppression rapide de type croix pour retirer un QR code deja selectionne.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Comparer le comportement observé avec cette attente : filtrer des la source les QR codes deja lies, puis ajouter une action locale de retrait sans rechargement complet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "un QR code deja present reste visible dans la liste des QR codes a assigner.",
+                "il manque une suppression rapide de type croix pour retirer un QR code deja selectionne."
+              ],
+              "validatedPoints": [
+                "l'element est bien rattache aux organisations, et les informations d'asset recuperent aussi les organisations et leurs noms."
+              ],
+              "advice": [
+                "filtrer des la source les QR codes deja lies, puis ajouter une action locale de retrait sans rechargement complet."
+              ],
+              "references": []
+            },
+            {
+              "id": "assets-et-organisations-creer-une-organisation",
+              "title": "Creer une organisation",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Organisations puis atteindre le flux \"Creer une organisation\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : la verification d'adresse reste a aligner avec celle utilisee pour les QR codes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : factoriser le composant ou le service de validation d'adresse afin d'eviter deux comportements differents.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "la verification d'adresse reste a aligner avec celle utilisee pour les QR codes."
+              ],
+              "validatedPoints": [
+                "la creation semble fonctionner."
+              ],
+              "advice": [
+                "factoriser le composant ou le service de validation d'adresse afin d'eviter deux comportements differents."
+              ],
+              "references": []
+            },
+            {
+              "id": "assets-et-organisations-dupliquer-un-element",
+              "title": "Dupliquer un element",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Organisations puis atteindre le flux \"Dupliquer un element\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : le flux de duplication manque d'une popup claire pour expliquer ce qu'il faut completer avant validation.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : afficher une popup recapitulant les champs obligatoires manquants et proposer un lien direct vers chacun.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "le flux de duplication manque d'une popup claire pour expliquer ce qu'il faut completer avant validation."
+              ],
+              "validatedPoints": [],
+              "advice": [
+                "afficher une popup recapitulant les champs obligatoires manquants et proposer un lien direct vers chacun."
+              ],
+              "references": []
+            },
+            {
+              "id": "assets-et-organisations-modifier-un-plusieurs-element-s",
+              "title": "Modifier un / plusieurs element(s)",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Organisations puis atteindre le flux \"Modifier un / plusieurs element(s)\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : il manque une vue avant/apres des modifications pour verifier qu'aucune information importante n'est perdue.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : ajouter un ecran de confirmation avec diff lisible champ par champ avant enregistrement.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "il manque une vue avant/apres des modifications pour verifier qu'aucune information importante n'est perdue."
+              ],
+              "validatedPoints": [
+                "pour des QR codes de types differents, la localisation et l'organisation restent modifiables correctement.",
+                "pour des QR codes similaires, la modification est possible sur les elements selectionnes."
+              ],
+              "advice": [
+                "ajouter un ecran de confirmation avec diff lisible champ par champ avant enregistrement."
+              ],
+              "references": []
+            },
+            {
+              "id": "assets-et-organisations-modifier-le-modele-d-une-organisation",
+              "title": "Modifier le modele d'une organisation",
+              "status": "todo",
+              "sourceStatus": "source-done",
+              "severity": "minor",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Organisations puis atteindre le flux \"Modifier le modele d'une organisation\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : le comportement est note comme stable, sans probleme releve.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : ajouter un test de regression simple et ne pas complexifier ce flux sans besoin fort.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [
+                "le comportement est note comme stable, sans probleme releve."
+              ],
+              "advice": [
+                "ajouter un test de regression simple et ne pas complexifier ce flux sans besoin fort."
+              ],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "shop",
+          "name": "Shop",
+          "cards": [
+            {
+              "id": "support-shop-et-acces-acces-au-shop-pour-un-utilisateur-avec-le-role-qaredata",
+              "title": "Acces au shop pour un utilisateur avec le role qaredata",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Shop puis atteindre le flux \"Acces au shop pour un utilisateur avec le role qaredata\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : le mode QR Code Virtuel reste en echec.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : comparer les droits, le chargement de donnees et la route utilisee par le mode QR Code Virtuel par rapport aux autres modes deja stables.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "le mode QR Code Virtuel reste en echec."
+              ],
+              "validatedPoints": [
+                "l'acces au shop marche globalement bien."
+              ],
+              "advice": [
+                "comparer les droits, le chargement de donnees et la route utilisee par le mode QR Code Virtuel par rapport aux autres modes deja stables."
+              ],
+              "references": []
+            },
+            {
+              "id": "support-shop-et-acces-ajouter-des-nouveaux-acces-exterieur",
+              "title": "Ajouter des nouveaux acces exterieur",
+              "status": "todo",
+              "sourceStatus": "source-done",
+              "severity": "minor",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Shop puis atteindre le flux \"Ajouter des nouveaux acces exterieur\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : l'ajout de nom et email marche sans probleme remonte.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : verifier quand meme le comportement sur emails invalides et doublons pour verrouiller le perimetre.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [
+                "l'ajout de nom et email marche sans probleme remonte."
+              ],
+              "advice": [
+                "verifier quand meme le comportement sur emails invalides et doublons pour verrouiller le perimetre."
+              ],
+              "references": []
+            },
+            {
+              "id": "support-shop-et-acces-generer-de-nouveaux-codes-non-assignes-virtuel-et-avec-stickers",
+              "title": "Generer de nouveaux codes non assignes (virtuel et avec stickers)",
+              "status": "todo",
+              "sourceStatus": "source-done",
+              "severity": "minor",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Shop puis atteindre le flux \"Generer de nouveaux codes non assignes (virtuel et avec stickers)\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : le flux est note comme fonctionnel sur les deux variantes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : ajouter un test de non-regression de volume et un controle du format genere.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [
+                "le flux est note comme fonctionnel sur les deux variantes."
+              ],
+              "advice": [
+                "ajouter un test de non-regression de volume et un controle du format genere."
+              ],
+              "references": []
+            },
+            {
+              "id": "support-shop-et-acces-modifier-la-politique-de-restriction-des-acces",
+              "title": "Modifier la politique de restriction des acces",
+              "status": "todo",
+              "sourceStatus": "source-done",
+              "severity": "minor",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Shop puis atteindre le flux \"Modifier la politique de restriction des acces\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : le cas d'ajout d'intervention fonctionne bien.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : elargir la recette aux autres scenarios de restriction avant cloture complete du sujet.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [
+                "le cas d'ajout d'intervention fonctionne bien."
+              ],
+              "advice": [
+                "elargir la recette aux autres scenarios de restriction avant cloture complete du sujet."
+              ],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "utilisateurs",
+          "name": "Utilisateurs",
+          "cards": [
+            {
+              "id": "utilisateurs-et-permissions-inviter-un-utilisateur",
+              "title": "Inviter un utilisateur",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "blocker",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Utilisateurs puis atteindre le flux \"Inviter un utilisateur\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : on peut inviter plusieurs fois la meme entite.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Verifier que ce point ne se reproduit plus : aucun mail n'est recu.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Verifier que ce point ne se reproduit plus : la liste ne se rafraichit pas apres l'action.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "on peut inviter plusieurs fois la meme entite.",
+                "aucun mail n'est recu.",
+                "la liste ne se rafraichit pas apres l'action."
+              ],
+              "validatedPoints": [],
+              "advice": [
+                "mettre un verrou d'unicite sur email ou identifiant, tracer l'envoi SMTP et recharger la liste des invitations apres succes."
+              ],
+              "references": []
+            },
+            {
+              "id": "utilisateurs-et-permissions-editer-les-permissions-d-un-utilisateur",
+              "title": "Editer les permissions d'un utilisateur",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Utilisateurs puis atteindre le flux \"Editer les permissions d'un utilisateur\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : en editant les filtres de perimetre, certains assets disparaissent quand on ajoute des organisations.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Verifier que ce point ne se reproduit plus : des QR codes peuvent etre ajoutes meme sans autorisation adequate.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Comparer le comportement observé avec cette attente : separer la logique de visibilite de la logique d'autorisation, puis tester chaque role sur une matrice de droits explicite.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "en editant les filtres de perimetre, certains assets disparaissent quand on ajoute des organisations.",
+                "des QR codes peuvent etre ajoutes meme sans autorisation adequate."
+              ],
+              "validatedPoints": [],
+              "advice": [
+                "separer la logique de visibilite de la logique d'autorisation, puis tester chaque role sur une matrice de droits explicite."
+              ],
+              "references": []
+            },
+            {
+              "id": "utilisateurs-et-permissions-reset-son-mot-de-passe",
+              "title": "Reset son mot de passe",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Manager > Utilisateurs puis atteindre le flux \"Reset son mot de passe\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : l'utilisateur devrait etre deconnecte apres l'operation.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : invalider les sessions ou forcer un renouvellement de jeton apres redefinition du mot de passe.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "l'utilisateur devrait etre deconnecte apres l'operation."
+              ],
+              "validatedPoints": [
+                "le reset de mot de passe fonctionne."
+              ],
+              "advice": [
+                "invalider les sessions ou forcer un renouvellement de jeton apres redefinition du mot de passe."
+              ],
+              "references": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "portail",
+      "name": "Portail",
+      "description": "Flux portail et accès externes côté parcours d’entrée.",
+      "pages": [
+        {
+          "id": "entrees-et-portail",
+          "name": "Entrées et portail",
+          "cards": [
+            {
+              "id": "entrees-import-et-portail-generer-et-consulter-le-portail-d-une-entree",
+              "title": "Generer et consulter le portail d'une entree",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "blocker",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Portail > Entrées et portail puis atteindre le flux \"Generer et consulter le portail d'une entree\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : la redirection essaye bien de partir sur portail.qareco.de, mais le portail ne marche pas car il ne cible pas la meme base de donnees.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : verifier la configuration d'environnement, les secrets et le mapping de base entre le manager et le portail avant tout nouveau test fonctionnel.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "la redirection essaye bien de partir sur portail.qareco.de, mais le portail ne marche pas car il ne cible pas la meme base de donnees."
+              ],
+              "validatedPoints": [
+                "le QR code est bien genere."
+              ],
+              "advice": [
+                "verifier la configuration d'environnement, les secrets et le mapping de base entre le manager et le portail avant tout nouveau test fonctionnel."
+              ],
+              "references": [
+                "portail.qareco.de"
+              ]
+            },
+            {
+              "id": "entrees-import-et-portail-supprimer-une-entree",
+              "title": "Supprimer une entree",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "blocker",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Portail > Entrées et portail puis atteindre le flux \"Supprimer une entree\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : supprimer toutes les entrees d'une organisation laisse un voile gris et bloque toute action sur l'ecran.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : verifier la fermeture du modal, l'etat de chargement et le rerendu de la vue vide apres suppression du dernier item.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "supprimer toutes les entrees d'une organisation laisse un voile gris et bloque toute action sur l'ecran."
+              ],
+              "validatedPoints": [],
+              "advice": [
+                "verifier la fermeture du modal, l'etat de chargement et le rerendu de la vue vide apres suppression du dernier item."
+              ],
+              "references": []
+            },
+            {
+              "id": "entrees-import-et-portail-modifier-une-entree",
+              "title": "Modifier une entree",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Portail > Entrées et portail puis atteindre le flux \"Modifier une entree\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : il manque une popup expliquant precisement ce qui a ete modifie.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : afficher un recap resumant uniquement les champs modifies, avec anciennes et nouvelles valeurs.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "il manque une popup expliquant precisement ce qui a ete modifie."
+              ],
+              "validatedPoints": [
+                "la modification fonctionne."
+              ],
+              "advice": [
+                "afficher un recap resumant uniquement les champs modifies, avec anciennes et nouvelles valeurs."
+              ],
+              "references": []
+            },
+            {
+              "id": "entrees-import-et-portail-lier-un-plusieurs-element-s-a-une-entree-via-cette-derniere",
+              "title": "Lier un / plusieurs element(s) a une entree via cette derniere",
+              "status": "todo",
+              "sourceStatus": "source-done",
+              "severity": "minor",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Portail > Entrées et portail puis atteindre le flux \"Lier un / plusieurs element(s) a une entree via cette derniere\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : l'ajout d'elements depuis l'entree est simple.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : un element deja present n'est ni duplique, ni supprime accidentellement.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Comparer le comportement observé avec cette attente : verrouiller ce comportement par un test automatique de non-duplication et de non-suppression implicite.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [
+                "l'ajout d'elements depuis l'entree est simple.",
+                "un element deja present n'est ni duplique, ni supprime accidentellement."
+              ],
+              "advice": [
+                "verrouiller ce comportement par un test automatique de non-duplication et de non-suppression implicite."
+              ],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "organisations",
+          "name": "Organisations",
+          "cards": [
+            {
+              "id": "entrees-import-et-portail-ajouter-une-plusieurs-entree-s-dans-l-organisation",
+              "title": "Ajouter une / plusieurs entree(s) dans l'organisation",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Portail > Organisations puis atteindre le flux \"Ajouter une / plusieurs entree(s) dans l'organisation\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : les noms et dates sont acceptes avec trop peu de garde-fous, avec une limite liee au comportement JavaScript.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Verifier que ce point ne se reproduit plus : l'import Excel passe globalement, mais les dates restent defectueuses pour l'instant.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Verifier que ce point ne se reproduit plus : le champ choix semble interprete selon vide ou non vide, au lieu de suivre strictement l'option attendue.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "les noms et dates sont acceptes avec trop peu de garde-fous, avec une limite liee au comportement JavaScript.",
+                "l'import Excel passe globalement, mais les dates restent defectueuses pour l'instant.",
+                "le champ choix semble interprete selon vide ou non vide, au lieu de suivre strictement l'option attendue.",
+                "plusieurs zones meritent des garde-fous d'overflow pour les textes tres longs."
+              ],
+              "validatedPoints": [
+                "l'ajout d'entrees fonctionne en manuel et via fichier."
+              ],
+              "advice": [
+                "normaliser les donnees d'import cote backend, imposer un parse strict des dates et utiliser une validation enum reelle pour le champ choix."
+              ],
+              "references": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "app-mobile",
+      "name": "App mobile",
+      "description": "Parcours mobiles et comportements natifs.",
+      "pages": [
+        {
+          "id": "assets-et-webview",
+          "name": "Assets et webview",
+          "cards": [
+            {
+              "id": "applications-mobiles-webview-et-site-public-association-d-un-qrcode-a-un-nouvel-element-app",
+              "title": "Association d'un QRCode a un nouvel element - App",
+              "status": "todo",
+              "sourceStatus": "source-done",
+              "severity": "minor",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir App mobile > Assets et webview puis atteindre le flux \"Association d'un QRCode a un nouvel element - App\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : l'association d'un nouvel element a un QRCode est validee.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : garder un test court de rattachement et un controle de non-duplication.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [
+                "l'association d'un nouvel element a un QRCode est validee."
+              ],
+              "advice": [
+                "garder un test court de rattachement et un controle de non-duplication."
+              ],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "compte",
+          "name": "Compte",
+          "cards": [
+            {
+              "id": "applications-mobiles-webview-et-site-public-gestion-de-son-compte-app",
+              "title": "Gestion de son compte - App",
+              "status": "todo",
+              "sourceStatus": "source-done",
+              "severity": "minor",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir App mobile > Compte puis atteindre le flux \"Gestion de son compte - App\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : la deconnexion du compte est validee.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : la suppression du compte est validee.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Comparer le comportement observé avec cette attente : conserver un test smoke complet du cycle de vie du compte a chaque release mobile.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [
+                "la deconnexion du compte est validee.",
+                "la suppression du compte est validee.",
+                "l'ajout du compte en se reconnectant est valide."
+              ],
+              "advice": [
+                "conserver un test smoke complet du cycle de vie du compte a chaque release mobile."
+              ],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "interventions",
+          "name": "Interventions",
+          "cards": [
+            {
+              "id": "applications-mobiles-webview-et-site-public-gestion-des-interventions-app",
+              "title": "Gestion des interventions - App",
+              "status": "todo",
+              "sourceStatus": "source-done",
+              "severity": "minor",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir App mobile > Interventions puis atteindre le flux \"Gestion des interventions - App\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : la creation d'une intervention est validee.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : la mise a jour d'une intervention est validee.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Comparer le comportement observé avec cette attente : ajouter une verification simple de persistence des donnees apres fermeture et reouverture de l'app.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [
+                "la creation d'une intervention est validee.",
+                "la mise a jour d'une intervention est validee."
+              ],
+              "advice": [
+                "ajouter une verification simple de persistence des donnees apres fermeture et reouverture de l'app."
+              ],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "navigation-android",
+          "name": "Navigation Android",
+          "cards": [
+            {
+              "id": "applications-mobiles-webview-et-site-public-bug-android-retour-ecran-rose",
+              "title": "Bug Android - retour ecran rose",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir App mobile > Navigation Android puis atteindre le flux \"Bug Android - retour ecran rose\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : le retour Android provoque un ecran rose.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : verifier la navigation, le cycle de vie de l'ecran et les erreurs de rendu au moment du back systeme.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "le retour Android provoque un ecran rose."
+              ],
+              "validatedPoints": [],
+              "advice": [
+                "verifier la navigation, le cycle de vie de l'ecran et les erreurs de rendu au moment du back systeme."
+              ],
+              "references": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "webview",
+      "name": "Webview",
+      "description": "Flux embarqués et webviews métier.",
+      "pages": [
+        {
+          "id": "connexion",
+          "name": "Connexion",
+          "cards": [
+            {
+              "id": "applications-mobiles-webview-et-site-public-page-de-connexion-webview",
+              "title": "Page de connexion - Webview",
+              "status": "todo",
+              "sourceStatus": "source-done",
+              "severity": "minor",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Webview > Connexion puis atteindre le flux \"Page de connexion - Webview\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : un domaine non autorise ne permet pas l'acces aux formulaires de creation d'intervention.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : un domaine autorise permet bien l'acces aux formulaires attendus.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Comparer le comportement observé avec cette attente : verrouiller cette regle avec un test automatise ou semi-automatise sur la liste blanche de domaines.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [
+                "un domaine non autorise ne permet pas l'acces aux formulaires de creation d'intervention.",
+                "un domaine autorise permet bien l'acces aux formulaires attendus."
+              ],
+              "advice": [
+                "verrouiller cette regle avec un test automatise ou semi-automatise sur la liste blanche de domaines."
+              ],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "interventions",
+          "name": "Interventions",
+          "cards": [
+            {
+              "id": "applications-mobiles-webview-et-site-public-gestion-des-interventions-webview",
+              "title": "Gestion des interventions - Webview",
+              "status": "todo",
+              "sourceStatus": "source-done",
+              "severity": "minor",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Webview > Interventions puis atteindre le flux \"Gestion des interventions - Webview\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : la creation d'une intervention est validee.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Confirmer qu'il n'y a pas de régression sur : la coherence de la date et de l'heure est validee sur la creation.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Comparer le comportement observé avec cette attente : garder un test specifique sur les fuseaux, l'affichage horaire et les eventuelles conversions UTC / locale.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [
+                "la creation d'une intervention est validee.",
+                "la coherence de la date et de l'heure est validee sur la creation.",
+                "la mise a jour d'une intervention est validee."
+              ],
+              "advice": [
+                "garder un test specifique sur les fuseaux, l'affichage horaire et les eventuelles conversions UTC / locale."
+              ],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "organisations",
+          "name": "Organisations",
+          "cards": [
+            {
+              "id": "assets-et-organisations-consulter-la-web-view-d-un-element",
+              "title": "Consulter la web view d'un element",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Webview > Organisations puis atteindre le flux \"Consulter la web view d'un element\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : la consultation fonctionne uniquement si l'element existe dans la webview prod, pas dans celle de staging.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : centraliser la construction de l'URL de webview dans une config d'environnement unique et testee pour staging et prod.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "la consultation fonctionne uniquement si l'element existe dans la webview prod, pas dans celle de staging."
+              ],
+              "validatedPoints": [],
+              "advice": [
+                "centraliser la construction de l'URL de webview dans une config d'environnement unique et testee pour staging et prod."
+              ],
+              "references": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "site-public",
+      "name": "Site public",
+      "description": "Parcours publics, site vitrine et formulaires externes.",
+      "pages": [
+        {
+          "id": "shop",
+          "name": "Shop",
+          "cards": [
+            {
+              "id": "support-shop-et-acces-utiliser-le-formulaire-de-contact",
+              "title": "Utiliser le formulaire de contact",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "blocker",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Site public > Shop puis atteindre le flux \"Utiliser le formulaire de contact\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : erreur 500 cote serveur mail.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Verifier que ce point ne se reproduit plus : le serveur d'envoi doit etre verifie.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Comparer le comportement observé avec cette attente : journaliser la reponse du provider mail, verifier les credentials et ajouter un message utilisateur plus explicite en cas d'echec.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "erreur 500 cote serveur mail.",
+                "le serveur d'envoi doit etre verifie."
+              ],
+              "validatedPoints": [],
+              "advice": [
+                "journaliser la reponse du provider mail, verifier les credentials et ajouter un message utilisateur plus explicite en cas d'echec."
+              ],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "site-public",
+          "name": "Site public",
+          "cards": [
+            {
+              "id": "applications-mobiles-webview-et-site-public-site-web-qaredata-io-affichage-du-texte",
+              "title": "Site web qaredata.io - affichage du texte",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Site public > Site public puis atteindre le flux \"Site web qaredata.io - affichage du texte\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : le site peut afficher qaredata au lieu de rendre correctement le gras sur qaredata.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : verifier l'echappement des etoiles, le pipeline markdown et toute phase de sanitation ou de transformation HTML.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "le site peut afficher qaredata au lieu de rendre correctement le gras sur qaredata."
+              ],
+              "validatedPoints": [],
+              "advice": [
+                "verifier l'echappement des etoiles, le pipeline markdown et toute phase de sanitation ou de transformation HTML."
+              ],
+              "references": [
+                "qaredata.io"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transverse",
+      "name": "Transverse",
+      "description": "Performance, cohérence transverse et sujets multi-surfaces.",
+      "pages": [
+        {
+          "id": "performance",
+          "name": "Performance",
+          "cards": [
+            {
+              "id": "applications-mobiles-webview-et-site-public-performance-chargement-parfois-long",
+              "title": "Performance - chargement parfois long",
+              "status": "todo",
+              "sourceStatus": "source-todo",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir Transverse > Performance puis atteindre le flux \"Performance - chargement parfois long\".",
+                  "checked": false
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Verifier que ce point ne se reproduit plus : certains chargements sont notes comme un peu longs.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Comparer le comportement observé avec cette attente : instrumenter les temps de chargement, isoler l'etape lente et differencier latence reseau, rendu UI et calcul local.",
+                  "checked": false
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
+                  "checked": false
+                }
+              ],
+              "sourceIssues": [
+                "certains chargements sont notes comme un peu longs."
+              ],
+              "validatedPoints": [],
+              "advice": [
+                "instrumenter les temps de chargement, isoler l'etape lente et differencier latence reseau, rendu UI et calcul local."
+              ],
+              "references": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cartes-perso",
+      "name": "Cartes perso",
+      "description": "Cartes créées manuellement pendant la recette.",
+      "pages": []
+    }
+  ]
+}
