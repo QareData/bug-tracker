@@ -1382,20 +1382,16 @@ body.dark-mode .header-main {
 
 .card-modal__detail-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card-modal__assets-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 18px;
   align-items: start;
-}
-
-.card-modal__side-stack {
-  display: grid;
-  gap: 16px;
-  align-content: start;
-}
-
-.card-modal__detail-layout .qa-source-grid {
-  grid-template-columns: 1fr;
 }
 
 .card-modal__context-grid {
@@ -1491,6 +1487,7 @@ body.dark-mode .header-main {
   .card-modal__grid,
   .card-modal__panels,
   .card-modal__detail-layout,
+  .card-modal__assets-layout,
   .qa-source-grid,
   .qa-step__bug-grid {
     grid-template-columns: 1fr;

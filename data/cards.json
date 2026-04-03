@@ -2,7 +2,7 @@
   "metadata": {
     "companyName": "QareData",
     "projectName": "Dashboard QA",
-    "reportName": "Rapport de sortie QA",
+    "reportName": "Rapport QA",
     "defaultTester": "",
     "defaultEnvironment": ""
   },
@@ -10,17 +10,18 @@
     {
       "id": "manager",
       "name": "Manager",
-      "description": "Recette du back-office manager et des flux d’administration.",
+      "description": "Recette du back-office manager et des flux d'administration.",
       "pages": [
         {
-          "id": "organisations",
-          "name": "Organisations",
+          "id": "elements",
+          "name": "Éléments",
           "cards": [
             {
-              "id": "assets-et-organisations-assigner-un-plusieurs-element-s",
-              "title": "Assigner un / plusieurs element(s)",
+              "id": "assigner-elements",
+              "title": "Assigner un / plusieurs élément(s)",
+              "scenarioTitle": "Un admin assigne un ou plusieurs élément(s) à une entrée / organisation",
               "status": "todo",
-              "sourceStatus": "source-todo",
+              "sourceStatus": "source-neutral",
               "severity": "major",
               "tester": "",
               "environment": "",
@@ -30,246 +31,231 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Manager > Organisations puis atteindre le flux \"Assigner un / plusieurs element(s)\".",
-                  "checked": false
+                  "label": "Accéder à la page Éléments et vérifier que la liste se charge correctement.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Sélectionner un seul élément, lancer l'action d’assignation, et vérifier que l’interface d’assignation s’ouvre (modal / page).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : un QR code deja present reste visible dans la liste des QR codes a assigner.",
-                  "checked": false
+                  "label": "Choisir la cible (organisation / entrée) et valider l’assignation ; vérifier que le rattachement / statut de l’élément est mis à jour.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Verifier que ce point ne se reproduit plus : il manque une suppression rapide de type croix pour retirer un QR code deja selectionne.",
-                  "checked": false
+                  "label": "Sélectionner plusieurs éléments et répéter l’assignation en multi-sélection ; vérifier que l’action s’applique à tous les éléments attendus.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-5",
-                  "label": "Comparer le comportement observé avec cette attente : filtrer des la source les QR codes deja lies, puis ajouter une action locale de retrait sans rechargement complet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "un QR code deja present reste visible dans la liste des QR codes a assigner.",
-                "il manque une suppression rapide de type croix pour retirer un QR code deja selectionne."
-              ],
-              "validatedPoints": [
-                "l'element est bien rattache aux organisations, et les informations d'asset recuperent aussi les organisations et leurs noms."
-              ],
-              "advice": [
-                "filtrer des la source les QR codes deja lies, puis ajouter une action locale de retrait sans rechargement complet."
-              ],
-              "references": []
-            },
-            {
-              "id": "assets-et-organisations-creer-une-organisation",
-              "title": "Creer une organisation",
-              "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "major",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Manager > Organisations puis atteindre le flux \"Creer une organisation\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : la verification d'adresse reste a aligner avec celle utilisee pour les QR codes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : factoriser le composant ou le service de validation d'adresse afin d'eviter deux comportements differents.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "la verification d'adresse reste a aligner avec celle utilisee pour les QR codes."
-              ],
-              "validatedPoints": [
-                "la creation semble fonctionner."
-              ],
-              "advice": [
-                "factoriser le composant ou le service de validation d'adresse afin d'eviter deux comportements differents."
-              ],
-              "references": []
-            },
-            {
-              "id": "assets-et-organisations-dupliquer-un-element",
-              "title": "Dupliquer un element",
-              "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "major",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Manager > Organisations puis atteindre le flux \"Dupliquer un element\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : le flux de duplication manque d'une popup claire pour expliquer ce qu'il faut completer avant validation.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : afficher une popup recapitulant les champs obligatoires manquants et proposer un lien direct vers chacun.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "le flux de duplication manque d'une popup claire pour expliquer ce qu'il faut completer avant validation."
-              ],
-              "validatedPoints": [],
-              "advice": [
-                "afficher une popup recapitulant les champs obligatoires manquants et proposer un lien direct vers chacun."
-              ],
-              "references": []
-            },
-            {
-              "id": "assets-et-organisations-modifier-un-plusieurs-element-s",
-              "title": "Modifier un / plusieurs element(s)",
-              "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "major",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Manager > Organisations puis atteindre le flux \"Modifier un / plusieurs element(s)\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : il manque une vue avant/apres des modifications pour verifier qu'aucune information importante n'est perdue.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : ajouter un ecran de confirmation avec diff lisible champ par champ avant enregistrement.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "il manque une vue avant/apres des modifications pour verifier qu'aucune information importante n'est perdue."
-              ],
-              "validatedPoints": [
-                "pour des QR codes de types differents, la localisation et l'organisation restent modifiables correctement.",
-                "pour des QR codes similaires, la modification est possible sur les elements selectionnes."
-              ],
-              "advice": [
-                "ajouter un ecran de confirmation avec diff lisible champ par champ avant enregistrement."
-              ],
-              "references": []
-            },
-            {
-              "id": "assets-et-organisations-modifier-le-modele-d-une-organisation",
-              "title": "Modifier le modele d'une organisation",
-              "status": "todo",
-              "sourceStatus": "source-done",
-              "severity": "minor",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Manager > Organisations puis atteindre le flux \"Modifier le modele d'une organisation\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : le comportement est note comme stable, sans probleme releve.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : ajouter un test de regression simple et ne pas complexifier ce flux sans besoin fort.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
+                  "label": "Tester un cas d’erreur (cible invalide, droits insuffisants, formulaire incomplet) et vérifier la cohérence des messages et du comportement.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
               "sourceIssues": [],
-              "validatedPoints": [
-                "le comportement est note comme stable, sans probleme releve."
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            },
+            {
+              "id": "consulter-webview-element",
+              "title": "Consulter la web view d'un élément",
+              "scenarioTitle": "Un admin consulte la web view d’un élément",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir le détail d’un élément depuis la liste Éléments et vérifier que les informations de base sont visibles.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Cliquer sur l’action « Web view » (ou équivalent) et vérifier qu’une web view (ou un nouvel onglet) s’ouvre sans erreur.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Vérifier que la web view affiche les informations attendues de l’élément (cohérence entre back-office et web view).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Vérifier que les contrôles d’accès attendus sont respectés (comportement en cas d’accès non autorisé, le cas échéant).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
               ],
-              "advice": [
-                "ajouter un test de regression simple et ne pas complexifier ce flux sans besoin fort."
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            },
+            {
+              "id": "dupliquer-elements",
+              "title": "Dupliquer un / plusieurs élément(s)",
+              "scenarioTitle": "Un admin duplique un ou plusieurs élément(s)",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Accéder à la page Éléments, sélectionner un élément, puis lancer l’action « Dupliquer ».",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Vérifier que les champs attendus sont copiés et que les champs/identifiants uniques sont traités conformément au besoin (nouvelle valeur si nécessaire).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Valider la duplication et vérifier que le nouvel élément apparaît dans la liste avec les valeurs attendues.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Sélectionner plusieurs éléments et lancer la duplication en masse ; vérifier que le nombre d’éléments créés correspond à la sélection.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Tester un cas d’erreur (données manquantes, limite, droits insuffisants) et vérifier la cohérence des messages.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
               ],
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            },
+            {
+              "id": "modifier-elements",
+              "title": "Modifier un / plusieurs élément(s)",
+              "scenarioTitle": "Un admin modifie un ou plusieurs élément(s)",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir un élément existant et vérifier que les données sont correctement affichées.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Modifier un ou plusieurs champs et vérifier qu’ils sont éditables (formats, contraintes, champs requis).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Sauvegarder et vérifier que les modifications sont prises en compte dans le détail et dans la liste.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Rafraîchir la page et vérifier que les modifications sont persistées.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Tester la modification en multi-sélection (si disponible) et vérifier que l’action s’applique correctement à tous les éléments ciblés.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
               "references": []
             }
           ]
         },
         {
-          "id": "shop",
-          "name": "Shop",
+          "id": "organisations",
+          "name": "Organisations",
           "cards": [
             {
-              "id": "support-shop-et-acces-acces-au-shop-pour-un-utilisateur-avec-le-role-qaredata",
-              "title": "Acces au shop pour un utilisateur avec le role qaredata",
+              "id": "creer-organisation",
+              "title": "Créer une organisation",
+              "scenarioTitle": "Un admin crée une organisation",
               "status": "todo",
-              "sourceStatus": "source-todo",
+              "sourceStatus": "source-neutral",
               "severity": "major",
               "tester": "",
               "environment": "",
@@ -279,47 +265,57 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Manager > Shop puis atteindre le flux \"Acces au shop pour un utilisateur avec le role qaredata\".",
-                  "checked": false
+                  "label": "Accéder à la page Organisations et vérifier que la page se charge correctement.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Cliquer sur « Créer une organisation » et vérifier que le formulaire de création s’affiche.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : le mode QR Code Virtuel reste en echec.",
-                  "checked": false
+                  "label": "Remplir le formulaire avec des données valides et vérifier qu’aucune erreur n’est affichée avant validation.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : comparer les droits, le chargement de donnees et la route utilisee par le mode QR Code Virtuel par rapport aux autres modes deja stables.",
-                  "checked": false
+                  "label": "Valider la création et vérifier que l’organisation apparaît dans la liste avec les informations attendues.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
+                  "label": "Recharger la page et vérifier que les données sont persistées.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
-              "sourceIssues": [
-                "le mode QR Code Virtuel reste en echec."
-              ],
-              "validatedPoints": [
-                "l'acces au shop marche globalement bien."
-              ],
-              "advice": [
-                "comparer les droits, le chargement de donnees et la route utilisee par le mode QR Code Virtuel par rapport aux autres modes deja stables."
-              ],
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
               "references": []
             },
             {
-              "id": "support-shop-et-acces-ajouter-des-nouveaux-acces-exterieur",
-              "title": "Ajouter des nouveaux acces exterieur",
+              "id": "modifier-organisation",
+              "title": "Modifier le modèle d'une organisation",
+              "scenarioTitle": "Un admin modifie le modèle d’une organisation",
               "status": "todo",
-              "sourceStatus": "source-done",
-              "severity": "minor",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
               "tester": "",
               "environment": "",
               "notes": "",
@@ -328,45 +324,57 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Manager > Shop puis atteindre le flux \"Ajouter des nouveaux acces exterieur\".",
-                  "checked": false
+                  "label": "Ouvrir une organisation existante et vérifier l’accès à la section « Modèle » / « Configuration » de l’organisation.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Changer le modèle de l’organisation et vérifier que les options associées (si présentes) se mettent à jour à l’écran.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : l'ajout de nom et email marche sans probleme remonte.",
-                  "checked": false
+                  "label": "Sauvegarder et vérifier que le modèle sélectionné est bien enregistré.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : verifier quand meme le comportement sur emails invalides et doublons pour verrouiller le perimetre.",
-                  "checked": false
+                  "label": "Rafraîchir la page et vérifier que le modèle reste celui sélectionné (persistance).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
+                  "label": "Vérifier que le comportement attendu (règles, champs, affichage) est cohérent après changement de modèle.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
               "sourceIssues": [],
-              "validatedPoints": [
-                "l'ajout de nom et email marche sans probleme remonte."
-              ],
-              "advice": [
-                "verifier quand meme le comportement sur emails invalides et doublons pour verrouiller le perimetre."
-              ],
+              "validatedPoints": [],
+              "advice": [],
               "references": []
             },
             {
-              "id": "support-shop-et-acces-generer-de-nouveaux-codes-non-assignes-virtuel-et-avec-stickers",
-              "title": "Generer de nouveaux codes non assignes (virtuel et avec stickers)",
+              "id": "ajouter-entrees-organisation",
+              "title": "Ajouter une / plusieurs entrée(s) dans l'organisation",
+              "scenarioTitle": "Un admin ajoute des entrée(s) à une organisation (manuel et import fichier)",
               "status": "todo",
-              "sourceStatus": "source-done",
-              "severity": "minor",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
               "tester": "",
               "environment": "",
               "notes": "",
@@ -375,45 +383,63 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Manager > Shop puis atteindre le flux \"Generer de nouveaux codes non assignes (virtuel et avec stickers)\".",
-                  "checked": false
+                  "label": "Ouvrir une organisation et accéder à la section Entrées (ou équivalent).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Ajouter une entrée manuellement, valider, et vérifier que l’entrée apparaît dans la liste de l’organisation.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : le flux est note comme fonctionnel sur les deux variantes.",
-                  "checked": false
+                  "label": "Ajouter plusieurs entrées manuellement (répéter ou via multi-ajout si disponible) et vérifier la cohérence du résultat.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : ajouter un test de non-regression de volume et un controle du format genere.",
-                  "checked": false
+                  "label": "Ajouter des entrées via chargement de fichier (fichier valide) et vérifier le récapitulatif (créations, éventuelles erreurs).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
+                  "label": "Tester un fichier invalide (format incorrect, colonnes manquantes) et vérifier les messages d’erreur et l’absence de création non souhaitée.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
               "sourceIssues": [],
-              "validatedPoints": [
-                "le flux est note comme fonctionnel sur les deux variantes."
-              ],
-              "advice": [
-                "ajouter un test de non-regression de volume et un controle du format genere."
-              ],
+              "validatedPoints": [],
+              "advice": [],
               "references": []
-            },
+            }
+          ]
+        },
+        {
+          "id": "entrees",
+          "name": "Entrées",
+          "cards": [
             {
-              "id": "support-shop-et-acces-modifier-la-politique-de-restriction-des-acces",
-              "title": "Modifier la politique de restriction des acces",
+              "id": "modifier-entree",
+              "title": "Modifier une entrée",
+              "scenarioTitle": "Un admin modifie une entrée",
               "status": "todo",
-              "sourceStatus": "source-done",
-              "severity": "minor",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
               "tester": "",
               "environment": "",
               "notes": "",
@@ -422,37 +448,225 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Manager > Shop puis atteindre le flux \"Modifier la politique de restriction des acces\".",
-                  "checked": false
+                  "label": "Accéder à la page Entrées (ou ouvrir une entrée depuis une organisation) et vérifier que la liste se charge.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Ouvrir une entrée existante et vérifier que ses informations sont visibles.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : le cas d'ajout d'intervention fonctionne bien.",
-                  "checked": false
+                  "label": "Modifier un ou plusieurs champs et vérifier qu’ils sont éditables et correctement validés.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : elargir la recette aux autres scenarios de restriction avant cloture complete du sujet.",
-                  "checked": false
+                  "label": "Sauvegarder et vérifier que les modifications sont prises en compte.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
+                  "label": "Rafraîchir la page et vérifier que les données sont persistées.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
               "sourceIssues": [],
-              "validatedPoints": [
-                "le cas d'ajout d'intervention fonctionne bien."
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            },
+            {
+              "id": "lier-elements-a-entree",
+              "title": "Lier un / plusieurs élément(s) à une entrée via cette dernière",
+              "scenarioTitle": "Un admin lie un ou plusieurs élément(s) à une entrée depuis la fiche entrée",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir une entrée existante et accéder à la section d’association des éléments (ou équivalent).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Rechercher / sélectionner un élément et valider l’association ; vérifier que l’élément apparaît comme lié à l’entrée.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Sélectionner plusieurs éléments (si disponible) et valider ; vérifier que toutes les associations attendues sont créées.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Vérifier la cohérence côté élément (l’entrée liée est visible / mise à jour, si applicable).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Tester un cas limite (élément déjà lié, droits insuffisants) et vérifier la cohérence des messages.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
               ],
-              "advice": [
-                "elargir la recette aux autres scenarios de restriction avant cloture complete du sujet."
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            },
+            {
+              "id": "generer-consulter-portail-entree",
+              "title": "Générer et consulter le portail d'une entrée",
+              "scenarioTitle": "Un admin génère puis consulte le portail d’une entrée",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir une entrée existante et localiser l’action « Générer le portail » (ou équivalent).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Lancer la génération du portail et vérifier qu’un lien / identifiant de portail est produit sans erreur.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Ouvrir le portail généré et vérifier que les informations affichées correspondent à l’entrée.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Rafraîchir la page (entrée et/ou portail) et vérifier le comportement attendu (lien disponible, accès cohérent).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Vérifier le respect des restrictions d’accès attendues (accès autorisé vs refusé, si applicable).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
               ],
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            },
+            {
+              "id": "supprimer-entree",
+              "title": "Supprimer une entrée",
+              "scenarioTitle": "Un admin supprime une entrée",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Ouvrir une entrée existante et vérifier que l’action « Supprimer » est disponible.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Cliquer sur « Supprimer » et vérifier qu’une confirmation explicite est demandée.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Confirmer la suppression et vérifier que l’entrée disparaît de la liste des entrées.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Rafraîchir la page et vérifier que l’entrée n’est plus accessible.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Tester l’annulation de la suppression (ne pas confirmer) et vérifier qu’aucune suppression n’a lieu.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
               "references": []
             }
           ]
@@ -462,10 +676,11 @@
           "name": "Utilisateurs",
           "cards": [
             {
-              "id": "utilisateurs-et-permissions-inviter-un-utilisateur",
+              "id": "inviter-utilisateur",
               "title": "Inviter un utilisateur",
+              "scenarioTitle": "Un admin invite un utilisateur",
               "status": "todo",
-              "sourceStatus": "source-todo",
+              "sourceStatus": "source-neutral",
               "severity": "blocker",
               "tester": "",
               "environment": "",
@@ -475,47 +690,57 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Manager > Utilisateurs puis atteindre le flux \"Inviter un utilisateur\".",
-                  "checked": false
+                  "label": "Accéder à la page Utilisateurs et vérifier que la liste est affichée.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Cliquer sur « Inviter un utilisateur » et vérifier que le formulaire d’invitation s’affiche.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : on peut inviter plusieurs fois la meme entite.",
-                  "checked": false
+                  "label": "Entrer un email valide, envoyer l’invitation et vérifier que l’action est confirmée (message de succès).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Verifier que ce point ne se reproduit plus : aucun mail n'est recu.",
-                  "checked": false
+                  "label": "Vérifier qu’il est impossible d’inviter deux fois le même utilisateur (ou le même email) et que le message est explicite.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-5",
-                  "label": "Verifier que ce point ne se reproduit plus : la liste ne se rafraichit pas apres l'action.",
-                  "checked": false
+                  "label": "Entrer un email invalide et vérifier que l’erreur affichée est cohérente et bloque l’envoi.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
-              "sourceIssues": [
-                "on peut inviter plusieurs fois la meme entite.",
-                "aucun mail n'est recu.",
-                "la liste ne se rafraichit pas apres l'action."
-              ],
+              "sourceIssues": [],
               "validatedPoints": [],
-              "advice": [
-                "mettre un verrou d'unicite sur email ou identifiant, tracer l'envoi SMTP et recharger la liste des invitations apres succes."
-              ],
+              "advice": [],
               "references": []
             },
             {
-              "id": "utilisateurs-et-permissions-editer-les-permissions-d-un-utilisateur",
-              "title": "Editer les permissions d'un utilisateur",
+              "id": "editer-permissions-utilisateur",
+              "title": "Éditer les permissions d’un utilisateur",
+              "scenarioTitle": "Un admin modifie les permissions / rôles d’un utilisateur",
               "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "major",
+              "sourceStatus": "source-neutral",
+              "severity": "blocker",
               "tester": "",
               "environment": "",
               "notes": "",
@@ -524,45 +749,56 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Manager > Utilisateurs puis atteindre le flux \"Editer les permissions d'un utilisateur\".",
-                  "checked": false
+                  "label": "Ouvrir la fiche d’un utilisateur existant et vérifier l’accès à la section Permissions / Rôles.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Modifier une permission (ajout/retrait de rôle) et vérifier que l’interface reflète le changement avant sauvegarde.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : en editant les filtres de perimetre, certains assets disparaissent quand on ajoute des organisations.",
-                  "checked": false
+                  "label": "Sauvegarder et vérifier que les permissions mises à jour sont affichées après rechargement.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Verifier que ce point ne se reproduit plus : des QR codes peuvent etre ajoutes meme sans autorisation adequate.",
-                  "checked": false
+                  "label": "Vérifier l’effet des permissions en testant l’accès aux menus/écrans concernés (selon le rôle).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-5",
-                  "label": "Comparer le comportement observé avec cette attente : separer la logique de visibilite de la logique d'autorisation, puis tester chaque role sur une matrice de droits explicite.",
-                  "checked": false
+                  "label": "Tester un cas non autorisé (utilisateur sans droits d’admin) et vérifier que la modification est refusée.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
-              "sourceIssues": [
-                "en editant les filtres de perimetre, certains assets disparaissent quand on ajoute des organisations.",
-                "des QR codes peuvent etre ajoutes meme sans autorisation adequate."
-              ],
+              "sourceIssues": [],
               "validatedPoints": [],
-              "advice": [
-                "separer la logique de visibilite de la logique d'autorisation, puis tester chaque role sur une matrice de droits explicite."
-              ],
+              "advice": [],
               "references": []
             },
             {
-              "id": "utilisateurs-et-permissions-reset-son-mot-de-passe",
+              "id": "reset-mot-de-passe-utilisateur",
               "title": "Reset son mot de passe",
+              "scenarioTitle": "Un admin réinitialise le mot de passe d’un utilisateur",
               "status": "todo",
-              "sourceStatus": "source-todo",
+              "sourceStatus": "source-neutral",
               "severity": "major",
               "tester": "",
               "environment": "",
@@ -572,206 +808,62 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Manager > Utilisateurs puis atteindre le flux \"Reset son mot de passe\".",
-                  "checked": false
+                  "label": "Ouvrir la fiche d’un utilisateur et identifier l’action « Reset mot de passe » (ou équivalent).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Lancer la réinitialisation et vérifier qu’un message de confirmation est affiché.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : l'utilisateur devrait etre deconnecte apres l'operation.",
-                  "checked": false
+                  "label": "Vérifier que l’utilisateur reçoit un email de réinitialisation (si testable) et que le lien est valide.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : invalider les sessions ou forcer un renouvellement de jeton apres redefinition du mot de passe.",
-                  "checked": false
+                  "label": "Finaliser la réinitialisation et vérifier que l’ancien mot de passe n’est plus accepté.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
+                  "label": "Vérifier qu’un nouveau mot de passe permet la connexion et que la session fonctionne normalement.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
-              "sourceIssues": [
-                "l'utilisateur devrait etre deconnecte apres l'operation."
-              ],
-              "validatedPoints": [
-                "le reset de mot de passe fonctionne."
-              ],
-              "advice": [
-                "invalider les sessions ou forcer un renouvellement de jeton apres redefinition du mot de passe."
-              ],
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
               "references": []
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "portail",
-      "name": "Portail",
-      "description": "Flux portail et accès externes côté parcours d’entrée.",
-      "pages": [
+        },
         {
-          "id": "entrees-et-portail",
-          "name": "Entrées et portail",
+          "id": "support",
+          "name": "Support",
           "cards": [
             {
-              "id": "entrees-import-et-portail-generer-et-consulter-le-portail-d-une-entree",
-              "title": "Generer et consulter le portail d'une entree",
+              "id": "utiliser-formulaire-contact",
+              "title": "Utiliser le formulaire de contact",
+              "scenarioTitle": "Un utilisateur utilise le formulaire de contact depuis le manager",
               "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "blocker",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Portail > Entrées et portail puis atteindre le flux \"Generer et consulter le portail d'une entree\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : la redirection essaye bien de partir sur portail.qareco.de, mais le portail ne marche pas car il ne cible pas la meme base de donnees.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : verifier la configuration d'environnement, les secrets et le mapping de base entre le manager et le portail avant tout nouveau test fonctionnel.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "la redirection essaye bien de partir sur portail.qareco.de, mais le portail ne marche pas car il ne cible pas la meme base de donnees."
-              ],
-              "validatedPoints": [
-                "le QR code est bien genere."
-              ],
-              "advice": [
-                "verifier la configuration d'environnement, les secrets et le mapping de base entre le manager et le portail avant tout nouveau test fonctionnel."
-              ],
-              "references": [
-                "portail.qareco.de"
-              ]
-            },
-            {
-              "id": "entrees-import-et-portail-supprimer-une-entree",
-              "title": "Supprimer une entree",
-              "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "blocker",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Portail > Entrées et portail puis atteindre le flux \"Supprimer une entree\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : supprimer toutes les entrees d'une organisation laisse un voile gris et bloque toute action sur l'ecran.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : verifier la fermeture du modal, l'etat de chargement et le rerendu de la vue vide apres suppression du dernier item.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "supprimer toutes les entrees d'une organisation laisse un voile gris et bloque toute action sur l'ecran."
-              ],
-              "validatedPoints": [],
-              "advice": [
-                "verifier la fermeture du modal, l'etat de chargement et le rerendu de la vue vide apres suppression du dernier item."
-              ],
-              "references": []
-            },
-            {
-              "id": "entrees-import-et-portail-modifier-une-entree",
-              "title": "Modifier une entree",
-              "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "major",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Portail > Entrées et portail puis atteindre le flux \"Modifier une entree\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : il manque une popup expliquant precisement ce qui a ete modifie.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : afficher un recap resumant uniquement les champs modifies, avec anciennes et nouvelles valeurs.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "il manque une popup expliquant precisement ce qui a ete modifie."
-              ],
-              "validatedPoints": [
-                "la modification fonctionne."
-              ],
-              "advice": [
-                "afficher un recap resumant uniquement les champs modifies, avec anciennes et nouvelles valeurs."
-              ],
-              "references": []
-            },
-            {
-              "id": "entrees-import-et-portail-lier-un-plusieurs-element-s-a-une-entree-via-cette-derniere",
-              "title": "Lier un / plusieurs element(s) a une entree via cette derniere",
-              "status": "todo",
-              "sourceStatus": "source-done",
+              "sourceStatus": "source-neutral",
               "severity": "minor",
               "tester": "",
               "environment": "",
@@ -781,51 +873,62 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Portail > Entrées et portail puis atteindre le flux \"Lier un / plusieurs element(s) a une entree via cette derniere\".",
-                  "checked": false
+                  "label": "Accéder au formulaire de contact (menu Support/Contact) et vérifier que la page se charge.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Remplir les champs requis avec des données valides et vérifier l’absence d’erreurs de validation.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : l'ajout d'elements depuis l'entree est simple.",
-                  "checked": false
+                  "label": "Envoyer le formulaire et vérifier qu’un message de confirmation est affiché.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : un element deja present n'est ni duplique, ni supprime accidentellement.",
-                  "checked": false
+                  "label": "Vérifier qu’une trace de la demande est disponible (si une liste/historique existe) ou que l’action est bien prise en compte.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-5",
-                  "label": "Comparer le comportement observé avec cette attente : verrouiller ce comportement par un test automatique de non-duplication et de non-suppression implicite.",
-                  "checked": false
+                  "label": "Tester l’envoi avec des champs invalides / manquants et vérifier les erreurs.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
               "sourceIssues": [],
-              "validatedPoints": [
-                "l'ajout d'elements depuis l'entree est simple.",
-                "un element deja present n'est ni duplique, ni supprime accidentellement."
-              ],
-              "advice": [
-                "verrouiller ce comportement par un test automatique de non-duplication et de non-suppression implicite."
-              ],
+              "validatedPoints": [],
+              "advice": [],
               "references": []
             }
           ]
         },
         {
-          "id": "organisations",
-          "name": "Organisations",
+          "id": "shop",
+          "name": "Shop",
           "cards": [
             {
-              "id": "entrees-import-et-portail-ajouter-une-plusieurs-entree-s-dans-l-organisation",
-              "title": "Ajouter une / plusieurs entree(s) dans l'organisation",
+              "id": "acces-shop-role-qaredata",
+              "title": "Accès au shop (utilisateur avec le rôle qaredata)",
+              "scenarioTitle": "Un utilisateur avec le rôle qaredata accède au shop",
               "status": "todo",
-              "sourceStatus": "source-todo",
+              "sourceStatus": "source-neutral",
               "severity": "major",
               "tester": "",
               "environment": "",
@@ -835,42 +938,229 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Portail > Organisations puis atteindre le flux \"Ajouter une / plusieurs entree(s) dans l'organisation\".",
-                  "checked": false
+                  "label": "Se connecter avec un utilisateur ayant le rôle « qaredata » et vérifier que le menu / accès Shop est visible.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Ouvrir la page Shop et vérifier que la page se charge correctement.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : les noms et dates sont acceptes avec trop peu de garde-fous, avec une limite liee au comportement JavaScript.",
-                  "checked": false
+                  "label": "Vérifier que les actions du Shop sont disponibles et cohérentes pour le rôle qaredata.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Verifier que ce point ne se reproduit plus : l'import Excel passe globalement, mais les dates restent defectueuses pour l'instant.",
-                  "checked": false
+                  "label": "Se connecter avec un utilisateur sans le rôle « qaredata » et vérifier que l’accès au Shop est absent ou refusé.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            },
+            {
+              "id": "generer-codes-non-assignes",
+              "title": "Générer de nouveaux code non assignés (virtuel et avec stickers)",
+              "scenarioTitle": "Un utilisateur génère des codes non assignés en virtuel et avec stickers",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Accéder à la section de génération de codes non assignés et vérifier que l’interface est accessible.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Générer des codes non assignés en mode virtuel et vérifier que la quantité et le format sont conformes au paramétrage.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Générer des codes non assignés « avec stickers » et vérifier que le flux est complet (options, confirmation, résultat).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Vérifier que les codes générés apparaissent comme « non assignés » et sont consultables dans la liste / historique.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-5",
-                  "label": "Verifier que ce point ne se reproduit plus : le champ choix semble interprete selon vide ou non vide, au lieu de suivre strictement l'option attendue.",
-                  "checked": false
+                  "label": "Tester un cas invalide (quantité nulle, valeur trop grande, champ manquant) et vérifier les erreurs.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
-              "sourceIssues": [
-                "les noms et dates sont acceptes avec trop peu de garde-fous, avec une limite liee au comportement JavaScript.",
-                "l'import Excel passe globalement, mais les dates restent defectueuses pour l'instant.",
-                "le champ choix semble interprete selon vide ou non vide, au lieu de suivre strictement l'option attendue.",
-                "plusieurs zones meritent des garde-fous d'overflow pour les textes tres longs."
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "acces-exterieur",
+          "name": "Accès extérieur",
+          "cards": [
+            {
+              "id": "ajouter-acces-exterieur",
+              "title": "Ajouter des nouveaux accès extérieur",
+              "scenarioTitle": "Un admin ajoute un nouvel accès extérieur",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Accéder à la page Accès extérieur et vérifier que la liste se charge.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Cliquer sur « Ajouter un accès extérieur » et vérifier que le formulaire s’affiche.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Remplir le formulaire avec des données valides, valider, et vérifier que l’accès apparaît dans la liste.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Vérifier que l’accès nouvellement créé fonctionne comme attendu (accès effectif / restrictions appliquées, si testable).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Tester la création avec des données invalides ou en doublon et vérifier les erreurs.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
               ],
-              "validatedPoints": [
-                "l'ajout d'entrees fonctionne en manuel et via fichier."
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "restrictions",
+          "name": "Restrictions d'accès",
+          "cards": [
+            {
+              "id": "modifier-politique-restriction-acces",
+              "title": "Modifier la politique de restriction d'accès",
+              "scenarioTitle": "Un admin modifie la politique de restriction d’accès",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "blocker",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Accéder à la page de politique de restriction d’accès et vérifier que la configuration actuelle est visible.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Modifier une règle (ex. domaines autorisés, critères d’accès) et vérifier que l’interface reflète la modification.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Sauvegarder et vérifier que la configuration est persistée après rafraîchissement.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-4",
+                  "label": "Tester un accès censé être refusé (selon la nouvelle règle) et vérifier que l’accès est bien bloqué.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-5",
+                  "label": "Tester un accès censé être autorisé et vérifier que l’accès fonctionne normalement.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
               ],
-              "advice": [
-                "normaliser les donnees d'import cote backend, imposer un parse strict des dates et utiliser une validation enum reelle pour le champ choix."
-              ],
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
               "references": []
             }
           ]
@@ -880,179 +1170,18 @@
     {
       "id": "app-mobile",
       "name": "App mobile",
-      "description": "Parcours mobiles et comportements natifs.",
+      "description": "Recette de l'application mobile et des parcours utilisateur.",
       "pages": [
-        {
-          "id": "assets-et-webview",
-          "name": "Assets et webview",
-          "cards": [
-            {
-              "id": "applications-mobiles-webview-et-site-public-association-d-un-qrcode-a-un-nouvel-element-app",
-              "title": "Association d'un QRCode a un nouvel element - App",
-              "status": "todo",
-              "sourceStatus": "source-done",
-              "severity": "minor",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir App mobile > Assets et webview puis atteindre le flux \"Association d'un QRCode a un nouvel element - App\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : l'association d'un nouvel element a un QRCode est validee.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : garder un test court de rattachement et un controle de non-duplication.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [],
-              "validatedPoints": [
-                "l'association d'un nouvel element a un QRCode est validee."
-              ],
-              "advice": [
-                "garder un test court de rattachement et un controle de non-duplication."
-              ],
-              "references": []
-            }
-          ]
-        },
         {
           "id": "compte",
           "name": "Compte",
           "cards": [
             {
-              "id": "applications-mobiles-webview-et-site-public-gestion-de-son-compte-app",
-              "title": "Gestion de son compte - App",
+              "id": "gestion-compte",
+              "title": "Tester la gestion de son compte (déconnexion + suppression + ajout)",
+              "scenarioTitle": "Un utilisateur gère son compte (déconnexion, suppression, ajout via connexion)",
               "status": "todo",
-              "sourceStatus": "source-done",
-              "severity": "minor",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir App mobile > Compte puis atteindre le flux \"Gestion de son compte - App\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : la deconnexion du compte est validee.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : la suppression du compte est validee.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Comparer le comportement observé avec cette attente : conserver un test smoke complet du cycle de vie du compte a chaque release mobile.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [],
-              "validatedPoints": [
-                "la deconnexion du compte est validee.",
-                "la suppression du compte est validee.",
-                "l'ajout du compte en se reconnectant est valide."
-              ],
-              "advice": [
-                "conserver un test smoke complet du cycle de vie du compte a chaque release mobile."
-              ],
-              "references": []
-            }
-          ]
-        },
-        {
-          "id": "interventions",
-          "name": "Interventions",
-          "cards": [
-            {
-              "id": "applications-mobiles-webview-et-site-public-gestion-des-interventions-app",
-              "title": "Gestion des interventions - App",
-              "status": "todo",
-              "sourceStatus": "source-done",
-              "severity": "minor",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir App mobile > Interventions puis atteindre le flux \"Gestion des interventions - App\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : la creation d'une intervention est validee.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : la mise a jour d'une intervention est validee.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Comparer le comportement observé avec cette attente : ajouter une verification simple de persistence des donnees apres fermeture et reouverture de l'app.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [],
-              "validatedPoints": [
-                "la creation d'une intervention est validee.",
-                "la mise a jour d'une intervention est validee."
-              ],
-              "advice": [
-                "ajouter une verification simple de persistence des donnees apres fermeture et reouverture de l'app."
-              ],
-              "references": []
-            }
-          ]
-        },
-        {
-          "id": "navigation-android",
-          "name": "Navigation Android",
-          "cards": [
-            {
-              "id": "applications-mobiles-webview-et-site-public-bug-android-retour-ecran-rose",
-              "title": "Bug Android - retour ecran rose",
-              "status": "todo",
-              "sourceStatus": "source-todo",
+              "sourceStatus": "source-neutral",
               "severity": "major",
               "tester": "",
               "environment": "",
@@ -1062,37 +1191,130 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir App mobile > Navigation Android puis atteindre le flux \"Bug Android - retour ecran rose\".",
-                  "checked": false
+                  "label": "Tester la déconnexion de son compte (depuis une session connectée) et vérifier le retour à l’écran de connexion.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
+                  "label": "Se reconnecter puis tester la suppression de son compte et vérifier que le compte est bien supprimé (confirmation + fin de session).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : le retour Android provoque un ecran rose.",
-                  "checked": false
+                  "label": "Tester l’ajout de son compte en se connectant (avec un compte valide) et vérifier que la connexion aboutit et que la session est active.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "interventions",
+          "name": "Interventions",
+          "cards": [
+            {
+              "id": "gestion-interventions",
+              "title": "Tester la gestion des interventions (ajout + mise à jour)",
+              "scenarioTitle": "Créer puis mettre à jour une intervention dans l’app mobile",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Tester la création d'une intervention et vérifier qu'elle est visible dans la liste (ou l’écran de confirmation).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Tester la mise à jour d'une intervention et vérifier que les changements sont pris en compte et visibles.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                }
+              ],
+              "sourceIssues": [],
+              "validatedPoints": [],
+              "advice": [],
+              "references": []
+            }
+          ]
+        },
+        {
+          "id": "qrcode",
+          "name": "QRCode",
+          "cards": [
+            {
+              "id": "associer-qrcode-nouvel-element",
+              "title": "Tester l’association d’un QRCode à un nouvel élément",
+              "scenarioTitle": "Associer un nouvel élément à un QRCode depuis l’app mobile",
+              "status": "todo",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
+              "tester": "",
+              "environment": "",
+              "notes": "",
+              "screenshots": [],
+              "collapsed": false,
+              "checklist": [
+                {
+                  "id": "chk-1",
+                  "label": "Accéder au parcours d’association QRCode (scan ou saisie) et vérifier que l’écran est accessible.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-2",
+                  "label": "Scanner (ou saisir) un QRCode et vérifier que le QRCode est reconnu par l’application.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
+                },
+                {
+                  "id": "chk-3",
+                  "label": "Créer un nouvel élément depuis ce parcours et valider l’association ; vérifier que l’élément apparaît comme associé au QRCode.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : verifier la navigation, le cycle de vie de l'ecran et les erreurs de rendu au moment du back systeme.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
+                  "label": "Vérifier un cas d’erreur (QRCode invalide / déjà associé) et la cohérence des messages.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
-              "sourceIssues": [
-                "le retour Android provoque un ecran rose."
-              ],
+              "sourceIssues": [],
               "validatedPoints": [],
-              "advice": [
-                "verifier la navigation, le cycle de vie de l'ecran et les erreurs de rendu au moment du back systeme."
-              ],
+              "advice": [],
               "references": []
             }
           ]
@@ -1102,18 +1324,19 @@
     {
       "id": "webview",
       "name": "Webview",
-      "description": "Flux embarqués et webviews métier.",
+      "description": "Recette des parcours webview et des contrôles d'accès.",
       "pages": [
         {
           "id": "connexion",
           "name": "Connexion",
           "cards": [
             {
-              "id": "applications-mobiles-webview-et-site-public-page-de-connexion-webview",
-              "title": "Page de connexion - Webview",
+              "id": "connexion-webview",
+              "title": "Tester la page de connexion",
+              "scenarioTitle": "Connexion avec domaine autorisé ou non pour accéder aux formulaires de création d'une intervention",
               "status": "todo",
-              "sourceStatus": "source-done",
-              "severity": "minor",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
               "tester": "",
               "environment": "",
               "notes": "",
@@ -1122,38 +1345,24 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Webview > Connexion puis atteindre le flux \"Page de connexion - Webview\".",
-                  "checked": false
+                  "label": "Entrer une adresse mail avec un nom de domaine non autorisé et vérifier que l'utilisateur ne peut pas accéder aux formulaires de création d'une intervention.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : un domaine non autorise ne permet pas l'acces aux formulaires de creation d'intervention.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : un domaine autorise permet bien l'acces aux formulaires attendus.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Comparer le comportement observé avec cette attente : verrouiller cette regle avec un test automatise ou semi-automatise sur la liste blanche de domaines.",
-                  "checked": false
+                  "label": "Entrer une adresse mail avec un nom de domaine autorisé et vérifier que l'utilisateur peut accéder aux formulaires de création d'une intervention.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
               "sourceIssues": [],
-              "validatedPoints": [
-                "un domaine non autorise ne permet pas l'acces aux formulaires de creation d'intervention.",
-                "un domaine autorise permet bien l'acces aux formulaires attendus."
-              ],
-              "advice": [
-                "verrouiller cette regle avec un test automatise ou semi-automatise sur la liste blanche de domaines."
-              ],
+              "validatedPoints": [],
+              "advice": [],
               "references": []
             }
           ]
@@ -1163,11 +1372,12 @@
           "name": "Interventions",
           "cards": [
             {
-              "id": "applications-mobiles-webview-et-site-public-gestion-des-interventions-webview",
-              "title": "Gestion des interventions - Webview",
+              "id": "gestion-interventions-webview",
+              "title": "Tester la gestion des interventions (ajout + mise à jour)",
+              "scenarioTitle": "Créer puis mettre à jour une intervention via la webview",
               "status": "todo",
-              "sourceStatus": "source-done",
-              "severity": "minor",
+              "sourceStatus": "source-neutral",
+              "severity": "major",
               "tester": "",
               "environment": "",
               "notes": "",
@@ -1176,279 +1386,29 @@
               "checklist": [
                 {
                   "id": "chk-1",
-                  "label": "Ouvrir Webview > Interventions puis atteindre le flux \"Gestion des interventions - Webview\".",
-                  "checked": false
+                  "label": "Tester la création d'une intervention et vérifier la cohérence de la date et de l'heure (saisie, affichage, timezone attendue).",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 },
                 {
                   "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : la creation d'une intervention est validee.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Confirmer qu'il n'y a pas de régression sur : la coherence de la date et de l'heure est validee sur la creation.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Comparer le comportement observé avec cette attente : garder un test specifique sur les fuseaux, l'affichage horaire et les eventuelles conversions UTC / locale.",
-                  "checked": false
+                  "label": "Tester la mise à jour d'une intervention et vérifier que les changements sont sauvegardés et visibles.",
+                  "status": "pending",
+                  "timestamp": "",
+                  "tester": "",
+                  "origin": "seed"
                 }
               ],
               "sourceIssues": [],
-              "validatedPoints": [
-                "la creation d'une intervention est validee.",
-                "la coherence de la date et de l'heure est validee sur la creation.",
-                "la mise a jour d'une intervention est validee."
-              ],
-              "advice": [
-                "garder un test specifique sur les fuseaux, l'affichage horaire et les eventuelles conversions UTC / locale."
-              ],
-              "references": []
-            }
-          ]
-        },
-        {
-          "id": "organisations",
-          "name": "Organisations",
-          "cards": [
-            {
-              "id": "assets-et-organisations-consulter-la-web-view-d-un-element",
-              "title": "Consulter la web view d'un element",
-              "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "major",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Webview > Organisations puis atteindre le flux \"Consulter la web view d'un element\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : la consultation fonctionne uniquement si l'element existe dans la webview prod, pas dans celle de staging.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : centraliser la construction de l'URL de webview dans une config d'environnement unique et testee pour staging et prod.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "la consultation fonctionne uniquement si l'element existe dans la webview prod, pas dans celle de staging."
-              ],
               "validatedPoints": [],
-              "advice": [
-                "centraliser la construction de l'URL de webview dans une config d'environnement unique et testee pour staging et prod."
-              ],
+              "advice": [],
               "references": []
             }
           ]
         }
       ]
-    },
-    {
-      "id": "site-public",
-      "name": "Site public",
-      "description": "Parcours publics, site vitrine et formulaires externes.",
-      "pages": [
-        {
-          "id": "shop",
-          "name": "Shop",
-          "cards": [
-            {
-              "id": "support-shop-et-acces-utiliser-le-formulaire-de-contact",
-              "title": "Utiliser le formulaire de contact",
-              "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "blocker",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Site public > Shop puis atteindre le flux \"Utiliser le formulaire de contact\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : erreur 500 cote serveur mail.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Verifier que ce point ne se reproduit plus : le serveur d'envoi doit etre verifie.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Comparer le comportement observé avec cette attente : journaliser la reponse du provider mail, verifier les credentials et ajouter un message utilisateur plus explicite en cas d'echec.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "erreur 500 cote serveur mail.",
-                "le serveur d'envoi doit etre verifie."
-              ],
-              "validatedPoints": [],
-              "advice": [
-                "journaliser la reponse du provider mail, verifier les credentials et ajouter un message utilisateur plus explicite en cas d'echec."
-              ],
-              "references": []
-            }
-          ]
-        },
-        {
-          "id": "site-public",
-          "name": "Site public",
-          "cards": [
-            {
-              "id": "applications-mobiles-webview-et-site-public-site-web-qaredata-io-affichage-du-texte",
-              "title": "Site web qaredata.io - affichage du texte",
-              "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "major",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Site public > Site public puis atteindre le flux \"Site web qaredata.io - affichage du texte\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : le site peut afficher qaredata au lieu de rendre correctement le gras sur qaredata.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : verifier l'echappement des etoiles, le pipeline markdown et toute phase de sanitation ou de transformation HTML.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "le site peut afficher qaredata au lieu de rendre correctement le gras sur qaredata."
-              ],
-              "validatedPoints": [],
-              "advice": [
-                "verifier l'echappement des etoiles, le pipeline markdown et toute phase de sanitation ou de transformation HTML."
-              ],
-              "references": [
-                "qaredata.io"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "transverse",
-      "name": "Transverse",
-      "description": "Performance, cohérence transverse et sujets multi-surfaces.",
-      "pages": [
-        {
-          "id": "performance",
-          "name": "Performance",
-          "cards": [
-            {
-              "id": "applications-mobiles-webview-et-site-public-performance-chargement-parfois-long",
-              "title": "Performance - chargement parfois long",
-              "status": "todo",
-              "sourceStatus": "source-todo",
-              "severity": "major",
-              "tester": "",
-              "environment": "",
-              "notes": "",
-              "screenshots": [],
-              "collapsed": false,
-              "checklist": [
-                {
-                  "id": "chk-1",
-                  "label": "Ouvrir Transverse > Performance puis atteindre le flux \"Performance - chargement parfois long\".",
-                  "checked": false
-                },
-                {
-                  "id": "chk-2",
-                  "label": "Exécuter le scénario principal de bout en bout avec des données de test cohérentes.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-3",
-                  "label": "Verifier que ce point ne se reproduit plus : certains chargements sont notes comme un peu longs.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-4",
-                  "label": "Comparer le comportement observé avec cette attente : instrumenter les temps de chargement, isoler l'etape lente et differencier latence reseau, rendu UI et calcul local.",
-                  "checked": false
-                },
-                {
-                  "id": "chk-5",
-                  "label": "Vérifier la sauvegarde, le rafraîchissement de la page ou le retour à la liste si le flux le permet.",
-                  "checked": false
-                }
-              ],
-              "sourceIssues": [
-                "certains chargements sont notes comme un peu longs."
-              ],
-              "validatedPoints": [],
-              "advice": [
-                "instrumenter les temps de chargement, isoler l'etape lente et differencier latence reseau, rendu UI et calcul local."
-              ],
-              "references": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "cartes-perso",
-      "name": "Cartes perso",
-      "description": "Cartes créées manuellement pendant la recette.",
-      "pages": []
     }
   ]
 }
