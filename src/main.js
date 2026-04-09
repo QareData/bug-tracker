@@ -17,6 +17,10 @@ import {
 } from "./core/state.js?v=20260407-pdf-phase1-1";
 import { generatePdfReport } from "./services/pdf.service.js?v=20260407-pdf-phase1-1";
 import { downloadMarkdownReport } from "./services/report.service.js?v=20260407-pdf-phase1-1";
+import {
+  askRandomQaSimulationSettings,
+  runRandomQaSimulation,
+} from "./services/test-simulator.service.js?v=20260409-test-simulator-2";
 import { renderApp } from "./ui/render.js?v=20260407-pdf-phase1-1";
 import { renderCardDetailed } from "./ui/components/card-detailed.js?v=20260407-pdf-phase1-1";
 import { syncSidebarOptions } from "./ui/components/filters.js?v=20260407-pdf-phase1-1";
@@ -119,6 +123,7 @@ function bindEvents() {
   elements.importInput?.addEventListener("change", handleImportJson);
   elements.generateMarkdownButton.addEventListener("click", handleGenerateMarkdown);
   elements.generatePdfButton.addEventListener("click", handleGeneratePdf);
+  elements.randomTestButton?.addEventListener("click", handleRandomTestRun);
   elements.resetButton.addEventListener("click", handleReset);
   elements.themeButton?.addEventListener("click", handleThemeToggle);
   elements.sidebarRoot?.addEventListener("click", handleSidebarNavigationClick);
@@ -285,6 +290,37 @@ async function handleReset() {
   closeCardModal();
   render();
   updateSaveStatus("Sauvegarde locale réinitialisée.");
+}
+
+function handleRandomTestRun() {
+  if (!store.getState().board) {
+    updateSaveStatus("Le board n'est pas encore prêt pour la simulation.");
+    return;
+  }
+
+  const simulationSettings = askRandomQaSimulationSettings(store.getState().board, {
+    tester: elements.testerInput?.value,
+    environment: elements.environmentInput?.value,
+  });
+  if (!simulationSettings) {
+    updateSaveStatus("Simulation QA annulée.");
+    return;
+  }
+
+  try {
+    const simulationResult = runRandomQaSimulation(
+      store.getState().board,
+      simulationSettings,
+    );
+
+    updateBoard(
+      () => simulationResult.board,
+      simulationResult.summary?.message || "Simulation QA exécutée.",
+    );
+  } catch (error) {
+    console.error(error);
+    updateSaveStatus("La simulation QA a échoué.");
+  }
 }
 
 function handleBoardClick(event) {
@@ -928,6 +964,7 @@ function getElements() {
 
     generateMarkdownButton: document.querySelector("#generate-markdown"),
     generatePdfButton: document.querySelector("#generate-pdf"),
+    randomTestButton: document.querySelector("#run-random-test"),
     exportButton: document.querySelector("#export-json"),
     importInput: document.querySelector("#file-import"),
     importButton: document.querySelector("#import-json"),
