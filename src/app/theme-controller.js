@@ -164,6 +164,7 @@ export function createThemeController({ elements }) {
 
   function syncThemeState(isDark) {
     document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+    syncFaviconState(isDark);
     if (elements.themeIcon) {
       elements.themeIcon.textContent = isDark ? "☀" : "☾";
     }
@@ -173,6 +174,16 @@ export function createThemeController({ elements }) {
       elements.themeButton.setAttribute("aria-label", label);
       elements.themeButton.setAttribute("aria-pressed", isDark ? "true" : "false");
     }
+  }
+
+  function syncFaviconState(isDark) {
+    const faviconLinks = document.querySelectorAll("#app-favicon, #app-shortcut-icon");
+    faviconLinks.forEach((link) => {
+      const nextHref = isDark ? link.dataset.darkHref : link.dataset.lightHref;
+      if (nextHref) {
+        link.setAttribute("href", nextHref);
+      }
+    });
   }
 
   return {
