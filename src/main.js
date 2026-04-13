@@ -1,34 +1,39 @@
-import { buildExportPayload, clearSavedCards, loadCards, parseImportedBoard, saveCards } from "./core/dataLoader.js?v=20260407-pdf-phase1-1";
-import { createStore } from "./core/store.js?v=20260407-pdf-phase1-1";
+import { buildExportPayload, clearSavedCards, loadCards, parseImportedBoard, saveCards } from "./core/dataLoader.js";
+import { createStore } from "./core/store.js";
 import {
   collapseAllCards,
   addScenarioStep,
   addScreenshot,
   clearScenarioStepResult,
   createInitialAppState,
-  createManualCard,
   deleteCard,
   markScenarioStepOk,
   removeScenarioStep,
   removeScreenshot,
   saveScenarioStepBug,
   setCardField,
+  upsertCardDefinition,
   updateBoardMeta,
-} from "./core/state.js?v=20260407-pdf-phase1-1";
-import { generatePdfReport } from "./services/pdf.service.js?v=20260407-pdf-phase1-1";
-import { downloadMarkdownReport } from "./services/report.service.js?v=20260407-pdf-phase1-1";
+} from "./core/state.js";
+import { generatePdfReport } from "./services/pdf.service.js";
+import { downloadMarkdownReport } from "./services/report.service.js";
 import {
   askRandomQaSimulationSettings,
   runRandomQaSimulation,
-} from "./services/test-simulator.service.js?v=20260409-test-simulator-2";
-import { renderApp } from "./ui/render.js?v=20260407-pdf-phase1-1";
-import { renderCardDetailed } from "./ui/components/card-detailed.js?v=20260407-pdf-phase1-1";
-import { syncSidebarOptions } from "./ui/components/filters.js?v=20260407-pdf-phase1-1";
-import { downloadBlob, formatFileStamp, readJsonFile, generateId } from "./utils/format.js?v=20260407-pdf-phase1-1";
+} from "./services/test-simulator.service.js";
+import { renderApp } from "./ui/render.js";
+import { renderCardDetailed } from "./ui/components/card-detailed.js";
+import { syncSidebarOptions } from "./ui/components/filters.js";
+import { downloadBlob, formatFileStamp, readJsonFile, generateId } from "./utils/format.js";
+import { getElements } from "./app/dom-elements.js";
+import { createThemeController } from "./app/theme-controller.js";
+import { createSidebarController } from "./app/sidebar-controller.js";
+import { createCardEditorController } from "./app/card-editor-controller.js";
+import { readFileAsDataUrl, optimizeImage } from "./app/image-utils.js";
+import { findCardContext } from "./app/card-context.js";
 
 const elements = getElements();
 let activeModalCardId = null;
-const SIDEBAR_COLLAPSED_STORAGE_KEY = "qa-sidebar-collapsed";
 const store = createStore({
   board: null,
   filters: {
@@ -40,6 +45,25 @@ const store = createStore({
     onlyNotValidated: false,
     hideDone: false,
   },
+});
+
+const themeController = createThemeController({ elements });
+const sidebarController = createSidebarController({
+  updateFilters,
+  render,
+});
+const cardEditorController = createCardEditorController({
+  elements,
+  store,
+  syncSidebarOptions,
+  findCardContext,
+  updateBoard,
+  updateSaveStatus,
+  closeCardModal,
+  syncBodyScrollLock,
+  generateId,
+  upsertCardDefinition,
+  deleteCard,
 });
 
 init().catch((error) => {
@@ -55,83 +79,53 @@ init().catch((error) => {
 });
 
 async function init() {
-  initTheme();
-  initSidebarState();
+  themeController.initTheme();
+  sidebarController.initSidebarState();
   const board = collapseAllCards(await loadCards());
   store.setState(createInitialAppState(board));
   saveCards(board);
   bindEvents();
   render();
+  cardEditorController.resetCardEditor();
   updateSaveStatus("Board QA chargé. Sauvegarde locale active.");
   maybeRunTestMode();
 }
 
 function bindEvents() {
-  if (elements.searchInput) {
-    elements.searchInput.addEventListener("input", (event) => {
-      updateFilters({
-        search: event.target.value.trim(),
-        page: "all",
-      });
-    });
-  }
-
-  elements.surfaceFilter?.addEventListener("change", (event) => {
-    updateFilters({
-      surface: event.target.value,
-      page: "all",
-    });
-  });
-
-  elements.pageFilter?.addEventListener("change", (event) => {
-    updateFilters({
-      page: event.target.value,
-    });
-  });
-
-  elements.statusFilter?.addEventListener("change", (event) => {
-    updateFilters({
-      status: event.target.value,
-    });
-  });
-
-  elements.severityFilter?.addEventListener("change", (event) => {
-    updateFilters({
-      severity: event.target.value,
-    });
-  });
-
-  elements.onlyNotValidatedInput?.addEventListener("change", (event) => {
-    updateFilters({
-      onlyNotValidated: event.target.checked,
-    });
-  });
-
-  elements.hideDoneInput?.addEventListener("change", (event) => {
-    updateFilters({
-      hideDone: event.target.checked,
-    });
-  });
-
   [elements.projectInput, elements.testerInput, elements.environmentInput].forEach((input) => {
     input.addEventListener("input", handleMetaInput);
     input.addEventListener("change", handleMetaChange);
   });
 
-  elements.createCardButton.addEventListener("click", handleCreateCard);
+  elements.openCardEditorButton?.addEventListener("click", () => cardEditorController.openCardEditor());
+  elements.createCardButton?.addEventListener("click", cardEditorController.handleCreateCard);
+  elements.cancelCardEditorButton?.addEventListener("click", cardEditorController.handleCancelCardEditor);
+  elements.deleteCardEditorButton?.addEventListener("click", cardEditorController.handleDeleteEditorCard);
+  elements.newCardSurface?.addEventListener("change", cardEditorController.handleCardEditorSurfaceChange);
+  elements.cardEditorPanel?.addEventListener("input", cardEditorController.handleCardEditorValidationInteraction);
+  elements.cardEditorPanel?.addEventListener("change", cardEditorController.handleCardEditorValidationInteraction);
+  elements.newCardChecklistCount?.addEventListener("change", cardEditorController.handleChecklistCountChange);
+  elements.addChecklistStepButton?.addEventListener("click", cardEditorController.handleAddChecklistStep);
+  elements.cardEditorChecklistRoot?.addEventListener("click", cardEditorController.handleCardEditorChecklistClick);
   elements.exportButton?.addEventListener("click", handleExportJson);
   elements.importButton?.addEventListener("click", () => elements.importInput?.click());
   elements.importInput?.addEventListener("change", handleImportJson);
   elements.generateMarkdownButton.addEventListener("click", handleGenerateMarkdown);
   elements.generatePdfButton.addEventListener("click", handleGeneratePdf);
   elements.resetButton.addEventListener("click", handleReset);
-  elements.themeButton?.addEventListener("click", handleThemeToggle);
-  elements.sidebarRoot?.addEventListener("click", handleSidebarNavigationClick);
+  elements.themeButton?.addEventListener("click", themeController.handleThemeToggle);
+  elements.sidebarRoot?.addEventListener("click", sidebarController.handleSidebarNavigationClick);
 
   elements.modalClose?.addEventListener("click", closeCardModal);
   elements.modalOverlay?.addEventListener("click", (event) => {
     if (event.target === elements.modalOverlay) {
       closeCardModal();
+    }
+  });
+  elements.cardEditorClose?.addEventListener("click", cardEditorController.closeCardEditorModal);
+  elements.cardEditorOverlay?.addEventListener("click", (event) => {
+    if (event.target === elements.cardEditorOverlay) {
+      cardEditorController.closeCardEditorModal();
     }
   });
   document.addEventListener("keydown", handleDocumentKeydown);
@@ -157,6 +151,7 @@ function render() {
   syncSidebarOptions(state.board, elements, state.filters);
   syncStaticFields(state);
   renderApp(state, elements);
+  cardEditorController.syncCardEditorUi();
 }
 
 function updateFilters(patch) {
@@ -188,35 +183,6 @@ function handleMetaChange() {
   render();
 }
 
-function handleCreateCard() {
-  try {
-    updateBoard(
-      (board) =>
-        createManualCard(board, {
-          surfaceId: elements.newCardSurface.value,
-          surfaceName:
-            elements.newCardSurface.selectedOptions[0]?.textContent || "Cartes perso",
-          pageName: elements.newCardPage.value,
-          title: elements.newCardTitle.value,
-          severity: elements.newCardSeverity.value,
-          notes: elements.newCardNotes.value,
-          scenarioSteps: elements.newCardChecklist.value,
-        }),
-      "Carte QA créée.",
-    );
-  } catch (error) {
-    updateSaveStatus(error.message);
-    elements.newCardTitle.focus();
-    return;
-  }
-
-  elements.newCardPage.value = "";
-  elements.newCardTitle.value = "";
-  elements.newCardNotes.value = "";
-  elements.newCardChecklist.value = "";
-  elements.newCardSeverity.value = "major";
-}
-
 function handleExportJson() {
   const board = store.getState().board;
   downloadBlob(
@@ -243,7 +209,9 @@ async function handleImportJson(event) {
     }));
     saveCards(board);
     closeCardModal();
+    cardEditorController.closeCardEditorModal();
     render();
+    cardEditorController.resetCardEditor();
     updateSaveStatus("Import JSON terminé.");
   } catch (error) {
     console.error(error);
@@ -288,7 +256,9 @@ async function handleReset() {
   store.setState(createInitialAppState(board));
   saveCards(board);
   closeCardModal();
+  cardEditorController.closeCardEditorModal();
   render();
+  cardEditorController.resetCardEditor();
   updateSaveStatus("Sauvegarde locale réinitialisée.");
 }
 
@@ -324,7 +294,7 @@ function handleRandomTestRun() {
 }
 
 function maybeRunTestMode() {
-  if (!isTestModeRoute()) {
+  if (!sidebarController.isTestModeRoute()) {
     return;
   }
 
@@ -346,6 +316,11 @@ function handleBoardClick(event) {
     switch (actionTarget.dataset.action) {
       case "open-card-modal": {
         openCardModal(cardId);
+        break;
+      }
+
+      case "edit-card-definition": {
+        cardEditorController.openCardEditor(cardId);
         break;
       }
 
@@ -479,9 +454,12 @@ function handleBoardClick(event) {
       }
 
       case "delete-card": {
-        const confirmed = window.confirm("Supprimer définitivement cette carte manuelle ?");
+        const confirmed = window.confirm(
+          "Supprimer cette carte du board local ? Exporte le JSON si tu veux conserver une sauvegarde publiable.",
+        );
         if (!confirmed) return;
         updateBoard((board) => deleteCard(board, cardId), "Carte supprimée.");
+        cardEditorController.clearEditingCardIfMatches(cardId);
         closeCardModal();
         break;
       }
@@ -584,7 +562,16 @@ function handleBoardKeydown(event) {
 }
 
 function handleDocumentKeydown(event) {
-  if (event.key === "Escape" && elements.modalOverlay?.classList.contains("active")) {
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  if (elements.cardEditorOverlay?.classList.contains("active")) {
+    cardEditorController.closeCardEditorModal();
+    return;
+  }
+
+  if (elements.modalOverlay?.classList.contains("active")) {
     closeCardModal();
   }
 }
@@ -668,46 +655,6 @@ async function handleImageUpload(file) {
   };
 }
 
-function readFileAsDataUrl(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(String(reader.result || ""));
-    reader.onerror = () => reject(reader.error || new Error("Lecture image impossible"));
-    reader.readAsDataURL(file);
-  });
-}
-
-function optimizeImage(dataUrl, mimeType) {
-  if (mimeType === "image/svg+xml") {
-    return Promise.resolve(dataUrl);
-  }
-
-  return new Promise((resolve, reject) => {
-    const image = new Image();
-    image.onload = () => {
-      const maxWidth = 1440;
-      const maxHeight = 1080;
-      const ratio = Math.min(maxWidth / image.width, maxHeight / image.height, 1);
-      const width = Math.round(image.width * ratio);
-      const height = Math.round(image.height * ratio);
-      const canvas = document.createElement("canvas");
-      canvas.width = width;
-      canvas.height = height;
-      const context = canvas.getContext("2d");
-
-      if (!context) {
-        resolve(dataUrl);
-        return;
-      }
-
-      context.drawImage(image, 0, 0, width, height);
-      resolve(canvas.toDataURL("image/jpeg", 0.84));
-    };
-    image.onerror = () => reject(new Error("Optimisation image impossible"));
-    image.src = dataUrl;
-  });
-}
-
 function updateBoard(updater, message, shouldRender = true, syncActiveModal = true) {
   const nextState = store.setState((current) => {
     const nextBoard = updater(current.board);
@@ -774,79 +721,6 @@ function buildHeaderSubtitle(meta) {
   return "Vue d'ensemble des campagnes de recette, criticités et exports.";
 }
 
-function initTheme() {
-  const isDark = localStorage.getItem("theme") === "dark";
-  document.body.classList.toggle("dark-mode", isDark);
-  syncThemeState(isDark);
-}
-
-function handleThemeToggle() {
-  const isDark = document.body.classList.toggle("dark-mode");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-  syncThemeState(isDark);
-}
-
-function syncThemeState(isDark) {
-  document.documentElement.style.colorScheme = isDark ? "dark" : "light";
-  if (elements.themeIcon) {
-    elements.themeIcon.textContent = isDark ? "☀" : "☾";
-  }
-  if (elements.themeButton) {
-    const label = isDark ? "Activer le mode clair" : "Activer le mode sombre";
-    elements.themeButton.setAttribute("title", label);
-    elements.themeButton.setAttribute("aria-label", label);
-    elements.themeButton.setAttribute("aria-pressed", isDark ? "true" : "false");
-  }
-}
-
-function initSidebarState() {
-  const isCollapsed = localStorage.getItem(SIDEBAR_COLLAPSED_STORAGE_KEY) === "true";
-  document.body.classList.toggle("sidebar-collapsed", isCollapsed);
-}
-
-function isTestModeRoute() {
-  const path = String(window.location.pathname || "").replace(/\/+$/, "");
-  return /\/test(?:\/index\.html)?$/.test(path);
-}
-
-function toggleSidebarCollapsed() {
-  const isCollapsed = document.body.classList.toggle("sidebar-collapsed");
-  localStorage.setItem(SIDEBAR_COLLAPSED_STORAGE_KEY, String(isCollapsed));
-  render();
-}
-
-function handleSidebarNavigationClick(event) {
-  const toggleButton = event.target.closest("#sidebar-toggle");
-  if (toggleButton) {
-    toggleSidebarCollapsed();
-    return;
-  }
-
-  const navButton = event.target.closest("[data-nav-surface]");
-  if (!navButton) {
-    return;
-  }
-
-  updateFilters({
-    surface: navButton.dataset.navSurface || "all",
-    page: navButton.dataset.navPage || "all",
-  });
-}
-
-function findCardContext(board, cardId) {
-  for (const surface of board.surfaces) {
-    for (const page of surface.pages) {
-      for (const card of page.cards) {
-        if (card.id === cardId) {
-          return { surface, page, card };
-        }
-      }
-    }
-  }
-
-  return null;
-}
-
 function openCardModal(cardId) {
   const context = findCardContext(store.getState().board, cardId);
   if (!context || !elements.modalOverlay || !elements.modalContent) {
@@ -856,7 +730,7 @@ function openCardModal(cardId) {
   activeModalCardId = cardId;
   renderModalCard(cardId);
   elements.modalOverlay.classList.add("active");
-  document.body.style.overflow = "hidden";
+  syncBodyScrollLock();
 }
 
 function renderModalCard(cardId) {
@@ -883,7 +757,15 @@ function closeCardModal() {
   if (elements.modalContent) {
     elements.modalContent.innerHTML = "";
   }
-  document.body.style.overflow = "";
+  syncBodyScrollLock();
+}
+
+function syncBodyScrollLock() {
+  const hasOpenOverlay = Boolean(
+    elements.modalOverlay?.classList.contains("active")
+    || elements.cardEditorOverlay?.classList.contains("active"),
+  );
+  document.body.style.overflow = hasOpenOverlay ? "hidden" : "";
 }
 
 function getCardIdFromNode(node) {
@@ -947,46 +829,3 @@ function updateSaveStatus(message) {
   elements.saveStatus.textContent = `${compactMessage} · ${now}`;
 }
 
-function getElements() {
-  return {
-    saveStatus: document.querySelector("#save-status"),
-    summaryRoot: document.querySelector("#summary-root"),
-    sidebarNavRoot: document.querySelector("#sidebar-nav-root"),
-    sidebarRoot: document.querySelector("#sidebar-nav-root"),
-    boardRoot: document.querySelector("#board-root"),
-
-    projectInput: document.querySelector("#project-name"),
-    testerInput: document.querySelector("#tester-name"),
-    environmentInput: document.querySelector("#environment-name"),
-    headerProjectTitle: document.querySelector("#header-project-title"),
-    headerProjectSubtitle: document.querySelector("#header-project-subtitle"),
-
-    searchInput: document.querySelector("#search-input"),
-    surfaceFilter: document.querySelector("#surface-filter"),
-    pageFilter: document.querySelector("#page-filter"),
-    statusFilter: document.querySelector("#status-filter"),
-    severityFilter: document.querySelector("#severity-filter"),
-    onlyNotValidatedInput: document.querySelector("#only-not-validated"),
-    hideDoneInput: document.querySelector("#hide-done"),
-
-    newCardSurface: document.querySelector("#new-card-surface"),
-    newCardPage: document.querySelector("#new-card-page"),
-    newCardTitle: document.querySelector("#new-card-title"),
-    newCardSeverity: document.querySelector("#new-card-severity"),
-    newCardChecklist: document.querySelector("#new-card-checklist"),
-    newCardNotes: document.querySelector("#new-card-notes"),
-    createCardButton: document.querySelector("#create-card"),
-
-    generateMarkdownButton: document.querySelector("#generate-markdown"),
-    generatePdfButton: document.querySelector("#generate-pdf"),
-    exportButton: document.querySelector("#export-json"),
-    importInput: document.querySelector("#file-import"),
-    importButton: document.querySelector("#import-json"),
-    resetButton: document.querySelector("#reset-board"),
-    themeButton: document.querySelector("#btn-theme"),
-    themeIcon: document.querySelector("#theme-icon"),
-    modalOverlay: document.querySelector("#modal-overlay"),
-    modalContent: document.querySelector("#modal-content"),
-    modalClose: document.querySelector("#modal-close"),
-  };
-}

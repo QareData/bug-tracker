@@ -1,10 +1,11 @@
-import { escapeAttribute, escapeHtml } from "../../utils/format.js?v=20260407-pdf-phase1-1";
+import { buildContextDescription, buildContextExpected } from "../../core/card-context.js";
+import { escapeAttribute, escapeHtml } from "../../utils/format.js";
 import {
   getCardChecklistMetrics,
   getCardStatusMeta,
   getSeverityMeta,
   getSourceStatusMeta,
-} from "../../core/state.js?v=20260407-pdf-phase1-1";
+} from "../../core/state.js";
 
 export function renderCardDetailed(surface, page, card, boardMeta = {}) {
   const status = getCardStatusMeta(card.status);
@@ -185,21 +186,22 @@ export function renderCardDetailed(surface, page, card, boardMeta = {}) {
           : ""
       }
 
-      ${
-        card.isManual
-          ? `
-            <div class="qa-card__footer-actions">
-              <button
-                class="button ghost danger"
-                type="button"
-                data-action="delete-card"
-              >
-                Supprimer cette carte
-              </button>
-            </div>
-          `
-          : ""
-      }
+      <div class="qa-card__footer-actions">
+        <button
+          class="button secondary"
+          type="button"
+          data-action="edit-card-definition"
+        >
+          Éditer la carte
+        </button>
+        <button
+          class="button ghost danger"
+          type="button"
+          data-action="delete-card"
+        >
+          Supprimer la carte
+        </button>
+      </div>
     </article>
   `;
 }
@@ -370,37 +372,4 @@ function renderScreenshot(shot) {
       </button>
     </figure>
   `;
-}
-
-function buildContextDescription(card) {
-  if (card.legacyContext?.description) {
-    return card.legacyContext.description;
-  }
-
-  if (card.sourceIssues.length) {
-    return card.sourceIssues.join("\n");
-  }
-
-  if (card.validatedPoints.length) {
-    return card.validatedPoints.join("\n");
-  }
-
-  const scenarioLabel = card.scenarioTitle || card.title || "ce scénario";
-  return `Le flux "${scenarioLabel}" doit être rejoué dans des conditions proches de l'usage réel afin de documenter le comportement observé et les éventuels écarts restants.`;
-}
-
-function buildContextExpected(card) {
-  if (card.legacyContext?.expectedResult) {
-    return card.legacyContext.expectedResult;
-  }
-
-  if (card.advice.length) {
-    return card.advice.join(" ");
-  }
-
-  if (card.validatedPoints.length) {
-    return card.validatedPoints.join(" ");
-  }
-
-  return "Le scénario doit être cohérent, stable et exploitable sans blocage majeur.";
 }
