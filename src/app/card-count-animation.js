@@ -1,6 +1,6 @@
 const DEFAULT_CARD_COUNT_TRIGGERS = [24];
 const CARD_COUNT_ANIMATION_CLASS = "card-count-celebration";
-const CARD_COUNT_ANIMATION_DURATION_MS = 2400;
+const CARD_COUNT_ANIMATION_DURATION_MS = 1200;
 const CARD_COUNT_ANIMATION_AMPLEUR_PERCENT = 200;
 
 export function isCardCountMilestone(cardCount, triggerCounts = DEFAULT_CARD_COUNT_TRIGGERS) {
