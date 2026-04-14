@@ -690,6 +690,13 @@ function buildPrintableStyles() {
     }
 
     .report-flow {
+      display: grid;
+      gap: 18px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
       break-after: auto;
     }
 
@@ -727,10 +734,10 @@ function buildPrintableStyles() {
     }
 
     h3 {
-      font-family: var(--font-display);
-      font-weight: 400;
+      font-family: var(--font-body);
+      font-weight: 900;
       font-size: 20px;
-      line-height: 1.15;
+      line-height: 1.2;
     }
 
     h4 {
@@ -746,6 +753,21 @@ function buildPrintableStyles() {
       font-family: var(--font-body);
       font-weight: 400;
       line-height: 1.55;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    li,
+    small,
+    strong,
+    blockquote,
+    figcaption {
+      overflow-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
     }
 
     .hero-card,
@@ -800,11 +822,14 @@ function buildPrintableStyles() {
       align-items: center;
       justify-content: center;
       width: fit-content;
+      max-width: 100%;
       min-height: 28px;
-      padding: 0 12px;
+      padding: 6px 12px;
       border-radius: 999px;
       font-size: 11px;
       font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       border: 1px solid transparent;
@@ -1117,8 +1142,8 @@ function buildPrintableStyles() {
     .surface-card__head,
     .detail-card__header,
     .timeline-card__head {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
       align-items: flex-start;
       gap: 12px;
     }
@@ -1136,9 +1161,10 @@ function buildPrintableStyles() {
     }
 
     .detail-card {
-      break-inside: avoid-page;
-      page-break-inside: avoid;
-      margin-bottom: 18px;
+      break-before: page;
+      page-break-before: always;
+      break-inside: auto;
+      page-break-inside: auto;
       padding: 22px;
     }
 
@@ -1146,6 +1172,7 @@ function buildPrintableStyles() {
       padding: 18px;
       border-radius: 20px;
       border: 1px solid var(--border-soft);
+      grid-template-columns: minmax(0, 1fr) minmax(150px, 188px);
     }
 
     .tone-validated {
@@ -1325,6 +1352,11 @@ function buildPrintableStyles() {
     }
 
     .detail-card__intro h3,
+    .surface-card__head h3 {
+      font-family: var(--font-body);
+      font-weight: 900;
+    }
+
     .section-hero h2,
     .empty-panel h3 {
       font-family: var(--font-display);
@@ -1352,6 +1384,75 @@ function buildPrintableStyles() {
       break-inside: avoid;
     }
 
+    .section-title-row {
+      flex-wrap: wrap;
+    }
+
+    .toc-row {
+      grid-template-columns: 42px minmax(0, 1fr) minmax(136px, 176px);
+      align-items: start;
+    }
+
+    .toc-copy,
+    .detail-card__intro,
+    .timeline-card,
+    .timeline-card__head,
+    .surface-card__head > div,
+    .result-panel,
+    .detail-section,
+    .meta-item,
+    .meta-strip__item,
+    .mini-stat {
+      min-width: 0;
+    }
+
+    .toc-copy strong,
+    .timeline-card__head strong {
+      display: block;
+    }
+
+    .toc-tags,
+    .detail-badges {
+      display: grid;
+      justify-items: end;
+      align-content: start;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .pill {
+      font-family: var(--font-body);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      max-width: 100%;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      line-height: 1.2;
+      text-align: center;
+      font-weight: 800;
+      border: 1px solid transparent;
+      white-space: normal;
+    }
+
+    .detail-card__header,
+    .detail-meta-grid,
+    .meta-strip,
+    .meta-item,
+    .meta-strip__item,
+    .mini-stat,
+    .surface-card,
+    .toc-row,
+    .timeline-item,
+    .image-card,
+    .result-panel,
+    .undetailed-card {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
     .page-footer {
       margin-top: auto;
       padding-top: 14px;
@@ -1376,11 +1477,21 @@ function buildPrintableStyles() {
       }
 
       .toc-row {
-        grid-template-columns: 42px 1fr;
+        grid-template-columns: 42px minmax(0, 1fr);
       }
 
       .toc-tags {
-        justify-content: flex-start;
+        justify-items: start;
+      }
+
+      .detail-card__header,
+      .surface-card__head,
+      .timeline-card__head {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-badges {
+        justify-items: start;
       }
     }
 

@@ -593,7 +593,7 @@ function drawDashboardSummaryCard(pdf, x, y, width, height, title, items, option
   });
   drawAccentBar(pdf, x + 18, y + 16, options.compact ? 128 : 112, 24, PDF_THEME.surfaceMuted, accent);
 
-  setPdfDisplayFont(pdf);
+  setPdfBodyFont(pdf, "bold");
   pdf.setFontSize(9);
   pdf.setTextColor(...accent);
   pdf.text(title.toUpperCase(), x + 30, y + 32);
@@ -620,8 +620,10 @@ async function drawDetailPages(pdf, layout, report) {
     return cardPageMap;
   }
 
-  for (const card of report.detailCards) {
-    ensureSpace(state, 110);
+  for (const [index, card] of report.detailCards.entries()) {
+    if (index > 0 || state.y !== state.layout.top) {
+      addFlowPage(state);
+    }
     cardPageMap[card.id] = state.pageNumber;
     await drawCardSection(state, card);
   }
@@ -737,27 +739,51 @@ async function drawCardSection(state, card) {
     });
   }
 
-  state.pdf.setDrawColor(226, 232, 240);
-  state.pdf.line(state.layout.left, state.y, state.layout.right, state.y);
-  state.y += 20;
+  state.y += 6;
 }
 
 function drawCardHeader(state, card) {
   const { pdf, layout } = state;
   const statusBadgeLabel = card.reportStatus.badgeLabel || card.reportStatus.label;
-  const pillWidth = Math.max(112, pdf.getTextWidth(statusBadgeLabel.toUpperCase()) + 26);
   const severityLabel = card.severity.badgeLabel || card.severity.label;
-  const severityWidth = Math.max(94, pdf.getTextWidth(severityLabel.toUpperCase()) + 24);
+
+  setPdfBodyFont(pdf, "bold");
+  pdf.setFontSize(9.5);
+  const pillWidth = Math.min(162, Math.max(112, pdf.getTextWidth(statusBadgeLabel.toUpperCase()) + 30));
+  const severityWidth = Math.min(152, Math.max(94, pdf.getTextWidth(severityLabel.toUpperCase()) + 28));
   const badgeColumnWidth = Math.max(pillWidth, severityWidth);
-  const titleMaxWidth = layout.contentWidth - badgeColumnWidth - 52;
-  const titleLines = pdf.splitTextToSize(card.title, titleMaxWidth);
-  const scenarioLines = pdf.splitTextToSize(card.scenarioTitle, titleMaxWidth);
-  const headerHeight = Math.max(
-    164,
-    100 + titleLines.length * 18 + scenarioLines.length * 12,
-  );
+  const inlineTitleWidth = layout.contentWidth - badgeColumnWidth - 72;
+
+  setPdfBodyFont(pdf, "black");
+  pdf.setFontSize(17);
+  let titleLines = pdf.splitTextToSize(cleanText(card.title), Math.max(220, inlineTitleWidth));
+  setPdfBodyFont(pdf, "normal");
+  pdf.setFontSize(10.5);
+  let scenarioLines = pdf.splitTextToSize(cleanText(card.scenarioTitle), Math.max(220, inlineTitleWidth));
+
+  const stackBadges = inlineTitleWidth < 280 || titleLines.length > 3 || scenarioLines.length > 2;
+  const textWidth = stackBadges ? layout.contentWidth - 36 : Math.max(220, inlineTitleWidth);
+  if (stackBadges) {
+    setPdfBodyFont(pdf, "black");
+    pdf.setFontSize(17);
+    titleLines = pdf.splitTextToSize(cleanText(card.title), textWidth);
+    setPdfBodyFont(pdf, "normal");
+    pdf.setFontSize(10.5);
+    scenarioLines = pdf.splitTextToSize(cleanText(card.scenarioTitle), textWidth);
+  }
+
+  const badgeRowWidth = pillWidth + severityWidth + 8;
+  const stackedBadgesHeight = stackBadges ? (badgeRowWidth <= textWidth ? 26 : 52) : 0;
+  const introBottomOffset =
+    56
+    + titleLines.length * 17
+    + scenarioLines.length * 13
+    + stackedBadgesHeight;
+  const metaOffset = Math.max(102, introBottomOffset + 10);
+  const headerHeight = Math.max(170, metaOffset + 54);
 
   ensureSpace(state, headerHeight + SECTION_GAP);
+  const metaY = state.y + metaOffset;
 
   const tone = getStatusTone(card.reportStatus.key);
   drawPanel(pdf, layout.left, state.y, layout.contentWidth, headerHeight, {
@@ -772,38 +798,56 @@ function drawCardHeader(state, card) {
   pdf.setTextColor(...tone.text);
   pdf.text(`${cleanText(card.surfaceName)} · ${cleanText(card.pageName)}`.toUpperCase(), layout.left + 32, state.y + 31);
 
-  setPdfDisplayFont(pdf);
-  pdf.setFontSize(19);
+  setPdfBodyFont(pdf, "black");
+  pdf.setFontSize(17);
   pdf.setTextColor(...PDF_THEME.text);
   pdf.text(titleLines, layout.left + 18, state.y + 60);
 
   setPdfBodyFont(pdf, "normal");
-  pdf.setFontSize(11);
+  pdf.setFontSize(10.5);
   pdf.setTextColor(...PDF_THEME.textMuted);
-  pdf.text(scenarioLines, layout.left + 18, state.y + 68 + titleLines.length * 18);
+  const scenarioY = state.y + 68 + titleLines.length * 17;
+  pdf.text(scenarioLines, layout.left + 18, scenarioY);
 
-  drawStatusPill(
-    pdf,
-    layout.right - badgeColumnWidth - 14,
-    state.y + 16,
-    badgeColumnWidth,
-    26,
-    statusBadgeLabel,
-    tone,
-  );
+  if (stackBadges) {
+    const badgeY = scenarioY + scenarioLines.length * 13 + 8;
+    const statusX = layout.left + 18;
+    drawStatusPill(pdf, statusX, badgeY, pillWidth, 26, statusBadgeLabel, tone);
 
-  drawOutlinePill(
-    pdf,
-    layout.right - badgeColumnWidth - 14,
-    state.y + 50,
-    badgeColumnWidth,
-    22,
-    severityLabel,
-    getSeverityTone(card.severity.tone),
-  );
+    const severityX = badgeRowWidth <= textWidth ? statusX + pillWidth + 8 : statusX;
+    const severityY = badgeRowWidth <= textWidth ? badgeY : badgeY + 30;
+    drawOutlinePill(
+      pdf,
+      severityX,
+      severityY,
+      severityWidth,
+      22,
+      severityLabel,
+      getSeverityTone(card.severity.tone),
+    );
+  } else {
+    drawStatusPill(
+      pdf,
+      layout.right - badgeColumnWidth - 14,
+      state.y + 16,
+      badgeColumnWidth,
+      26,
+      statusBadgeLabel,
+      tone,
+    );
+
+    drawOutlinePill(
+      pdf,
+      layout.right - badgeColumnWidth - 14,
+      state.y + 50,
+      badgeColumnWidth,
+      22,
+      severityLabel,
+      getSeverityTone(card.severity.tone),
+    );
+  }
 
   const metaWidth = (layout.contentWidth - 18 * 2 - 8) / 2;
-  const metaY = state.y + headerHeight - 62;
   drawInfoChip(pdf, layout.left + 18, metaY, metaWidth, "Statut QA", card.status.label);
   drawInfoChip(
     pdf,
@@ -853,7 +897,7 @@ function drawParagraphSection(state, title, text) {
 
   const bodyWidth = state.layout.contentWidth - 34;
   const lines = state.pdf.splitTextToSize(cleanText(text), bodyWidth);
-  const panelHeight = 48 + lines.length * 14;
+  const panelHeight = 56 + lines.length * 14;
   const accent = title === "Notes"
     ? PDF_THEME.warning
     : title === "Résultat attendu"
@@ -881,7 +925,7 @@ function drawParagraphSection(state, title, text) {
   setPdfBodyFont(state.pdf, "normal");
   state.pdf.setFontSize(10.5);
   state.pdf.setTextColor(...PDF_THEME.neutral);
-  state.pdf.text(lines, state.layout.left + 16, state.y + 50);
+  state.pdf.text(lines, state.layout.left + 16, state.y + 52);
 
   state.y += panelHeight + 10;
 }
@@ -897,25 +941,58 @@ function drawScenarioSection(state, card) {
   for (const [index, item] of card.scenarioSteps.entries()) {
     const toneKey = item.status === "ok" ? "validated" : item.status === "ko" ? "failed" : "untested";
     const stepTone = getStatusTone(toneKey);
-    const badgeWidth = 88;
-    const contentWidth = state.layout.contentWidth - badgeWidth - 86;
-    const titleLines = state.pdf.splitTextToSize(cleanText(item.label), contentWidth);
-    const metaLines = state.pdf.splitTextToSize(
-      cleanText(item.testStamp || "Étape non testée pour le moment."),
-      contentWidth,
+    setPdfBodyFont(state.pdf, "bold");
+    state.pdf.setFontSize(8.5);
+    const badgeWidth = Math.min(
+      122,
+      Math.max(88, state.pdf.getTextWidth((item.statusBadgeLabel || item.statusLabel).toUpperCase()) + 22),
     );
-    const bugBlocks = item.status === "ko"
+    let contentWidth = state.layout.contentWidth - badgeWidth - 86;
+    setPdfBodyFont(state.pdf, "bold");
+    state.pdf.setFontSize(11);
+    let titleLines = state.pdf.splitTextToSize(cleanText(item.label), Math.max(220, contentWidth));
+    setPdfBodyFont(state.pdf, "normal");
+    state.pdf.setFontSize(9.5);
+    let metaLines = state.pdf.splitTextToSize(
+      cleanText(item.testStamp || "Étape non testée pour le moment."),
+      Math.max(220, contentWidth),
+    );
+    let bugBlocks = item.status === "ko"
       ? [
-          ...state.pdf.splitTextToSize(`Bug : ${cleanText(item.bug?.description)}`, contentWidth),
-          ...state.pdf.splitTextToSize(`Observé : ${cleanText(item.bug?.observedBehavior)}`, contentWidth),
-          ...state.pdf.splitTextToSize(`Attendu : ${cleanText(item.bug?.expectedResult)}`, contentWidth),
+          ...state.pdf.splitTextToSize(`Bug : ${cleanText(item.bug?.description)}`, Math.max(220, contentWidth)),
+          ...state.pdf.splitTextToSize(`Observé : ${cleanText(item.bug?.observedBehavior)}`, Math.max(220, contentWidth)),
+          ...state.pdf.splitTextToSize(`Attendu : ${cleanText(item.bug?.expectedResult)}`, Math.max(220, contentWidth)),
         ]
       : [];
+    const stackBadge = contentWidth < 280 || titleLines.length > 3 || metaLines.length > 3 || bugBlocks.length > 7;
+
+    if (stackBadge) {
+      contentWidth = state.layout.contentWidth - 60;
+      setPdfBodyFont(state.pdf, "bold");
+      state.pdf.setFontSize(11);
+      titleLines = state.pdf.splitTextToSize(cleanText(item.label), contentWidth);
+      setPdfBodyFont(state.pdf, "normal");
+      state.pdf.setFontSize(9.5);
+      metaLines = state.pdf.splitTextToSize(
+        cleanText(item.testStamp || "Étape non testée pour le moment."),
+        contentWidth,
+      );
+      bugBlocks = item.status === "ko"
+        ? [
+            ...state.pdf.splitTextToSize(`Bug : ${cleanText(item.bug?.description)}`, contentWidth),
+            ...state.pdf.splitTextToSize(`Observé : ${cleanText(item.bug?.observedBehavior)}`, contentWidth),
+            ...state.pdf.splitTextToSize(`Attendu : ${cleanText(item.bug?.expectedResult)}`, contentWidth),
+          ]
+        : [];
+    }
+
+    const badgeBlockHeight = stackBadge ? 26 + 8 : 0;
     const itemHeight = Math.max(
       74,
       28
         + titleLines.length * 14
         + metaLines.length * 12
+        + badgeBlockHeight
         + (bugBlocks.length ? bugBlocks.length * 12 + 28 : 0),
     );
 
@@ -950,6 +1027,19 @@ function drawScenarioSection(state, card) {
     state.pdf.text(metaLines, state.layout.left + 48, cursorY);
     cursorY += metaLines.length * 12 + 4;
 
+    if (stackBadge) {
+      drawSmallBadge(
+        state.pdf,
+        state.layout.left + 48,
+        cursorY,
+        badgeWidth,
+        20,
+        item.statusBadgeLabel || item.statusLabel,
+        stepTone,
+      );
+      cursorY += 28;
+    }
+
     if (bugBlocks.length) {
       drawPanel(
         state.pdf,
@@ -969,15 +1059,17 @@ function drawScenarioSection(state, card) {
       state.pdf.text(bugBlocks, state.layout.left + 58, cursorY + 14);
     }
 
-    drawSmallBadge(
-      state.pdf,
-      state.layout.right - badgeWidth - 12,
-      state.y + 18,
-      badgeWidth,
-      20,
-      item.statusBadgeLabel || item.statusLabel,
-      stepTone,
-    );
+    if (!stackBadge) {
+      drawSmallBadge(
+        state.pdf,
+        state.layout.right - badgeWidth - 12,
+        state.y + 18,
+        badgeWidth,
+        20,
+        item.statusBadgeLabel || item.statusLabel,
+        stepTone,
+      );
+    }
 
     state.y += itemHeight + 8;
   }
@@ -1050,7 +1142,7 @@ function drawBulletSection(state, title, items, options = {}) {
   state.pdf.setTextColor(...bulletColor);
   state.pdf.text(title.toUpperCase(), state.layout.left + 28, state.y + 29);
 
-  let cursorY = state.y + 50;
+  let cursorY = state.y + 52;
   const textX = state.layout.left + 28;
   items.forEach((item) => {
     const lines = state.pdf.splitTextToSize(cleanText(item), state.layout.contentWidth - 46);
@@ -1068,12 +1160,12 @@ function drawBulletSection(state, title, items, options = {}) {
 
 function drawSubsectionTitle(state, title) {
   const lines = state.pdf.splitTextToSize(cleanText(title), state.layout.contentWidth);
-  ensureSpace(state, Math.max(18, lines.length * 12 + 6));
+  ensureSpace(state, Math.max(22, lines.length * 12 + 8));
   setPdfBodyFont(state.pdf, "bold");
   state.pdf.setFontSize(9.5);
   state.pdf.setTextColor(...PDF_THEME.textSoft);
   state.pdf.text(lines, state.layout.left, state.y);
-  state.y += lines.length * 12;
+  state.y += lines.length * 12 + 2;
 }
 
 async function drawScreenshotsSection(state, card) {
@@ -1561,7 +1653,7 @@ function measureBulletSectionHeight(pdf, items, width) {
   return items.reduce((total, item) => {
     const lines = pdf.splitTextToSize(cleanText(item), width - 12);
     return total + lines.length * 13 + 6;
-  }, 52);
+  }, 56);
 }
 
 function canRenderResultGrid(pdf, contentWidth, leftItems, rightItems) {
